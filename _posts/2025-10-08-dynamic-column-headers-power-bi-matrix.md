@@ -3,11 +3,13 @@ layout: single
 title: "Dynamic Column Headers in Power BI Matrix Visual"
 excerpt: "A walkthrough of how I solved a non-native Power BI challenge: making matrix column headers update automatically every week using calculated columns, a disconnected table, and dynamic DAX measures."
 date: 2025-10-08
+permalink: /musings/dynamic-column-headers-power-bi-matrix/
 header:
-  teaser: https://github.com/user-attachments/assets/b2ef49a6-8683-4655-b1d7-e4d00c3d14f8
-  overlay_image: https://github.com/user-attachments/assets/b2ef49a6-8683-4655-b1d7-e4d00c3d14f8
+  teaser: /assets/images/matrix-dynamic-headers-final.png
+  overlay_image: /assets/images/matrix-dynamic-headers-final.png
   overlay_filter: 0.65
 categories:
+  - Musings
   - Power BI
   - DAX
 tags:
@@ -25,7 +27,7 @@ I recently had an interesting request: build a matrix visual where the column he
 
 Here is what the final output looks like:
 
-![Matrix visual with dynamic weekly column headers](https://github.com/user-attachments/assets/b2ef49a6-8683-4655-b1d7-e4d00c3d14f8)
+![Matrix visual with dynamic weekly column headers](/assets/images/matrix-dynamic-headers-final.png)
 
 ---
 
@@ -81,11 +83,13 @@ The approach requires four components working together:
 
 I always include a calendar table in every report I build, and I always make sure it has **offset columns** (highlighted in green below). These offsets simplify time intelligence significantly — instead of writing complex date comparisons, I can just reference `CurrWeekOffset = -1` to mean "last week."
 
-![Calendar table with offset columns highlighted](https://github.com/user-attachments/assets/8197f901-7160-458a-9342-7a64c124b88c)
+![Calendar table with offset columns highlighted](/assets/images/matrix-calendar-offsets.png)
 
 ### Calculated Column: Relative Time Period
 
 This column is the heart of the solution. It evaluates each date's week offset and returns the appropriate dynamic label string.
+
+![Relative Time Period calculated column in Power BI Desktop](/assets/images/matrix-relative-time-period-column.png)
 
 ```
 Relative Time Period =
@@ -213,7 +217,7 @@ SWITCH(
 
 With the calendar calculated columns ready, I needed a single "summary" table to bring everything together — including L4WA, MTD, and YTD rows that don't exist in the calendar.
 
-![Matrix Period disconnected table](https://github.com/user-attachments/assets/6c28f710-b9f4-4d7b-ac94-5074e04901a7)
+![Matrix Period disconnected table](/assets/images/matrix-period-disconnected-table.png)
 
 The **Matrix Period** table is built as a `UNION` of:
 - The distinct values from `Calendar[Relative Time Period]` and `Calendar[Relative Time Period Index]`
@@ -331,7 +335,7 @@ With the measures ready, the matrix visual setup is straightforward:
 - **Columns:** `Relative Time Period` from the **Matrix Period** disconnected table
 - **Values:** The dynamic measures — Revenue Value, FFE Value, etc.
 
-![Matrix visual field configuration](https://github.com/user-attachments/assets/e0a0e240-5aba-47e0-b69f-bfdc3a2a62f7)
+![Matrix visual field configuration](/assets/images/matrix-visual-fields.png)
 
 Sort the `Relative Time Period` column by `Relative Time Period Index` to ensure the columns render in the correct order.
 

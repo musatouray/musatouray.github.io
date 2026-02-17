@@ -7,7 +7,8 @@ classes: wide
 ---
 
 <div class="musings-grid" id="musings-grid">
-  {% for post in site.posts %}
+  {% assign musings_posts = site.posts | where_exp: "post", "post.categories contains 'Musings'" %}
+  {% for post in musings_posts %}
   {% assign words = post.content | number_of_words %}
   {% assign mins = words | divided_by: 200 %}
   {% if mins < 1 %}{% assign mins = 1 %}{% endif %}
