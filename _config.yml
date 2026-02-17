@@ -172,6 +172,9 @@ defaults:
       share: true
       related: true
       show_date: true
+      toc: true
+      toc_sticky: true
+      toc_label: "Overview"
       sidebar: &cert_sidebar
         - title: "Certifications"
           text: |
@@ -211,4 +214,7 @@ defaults:
       layout: single
       author_profile: true
       share: true
+      toc: true
+      toc_sticky: true
+      toc_label: "Overview"
       sidebar: *cert_sidebar
