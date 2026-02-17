@@ -18,7 +18,6 @@ tags:
   - Live Reporting
   - Parliamentary Elections
 author_profile: true
-comments: true
 share: true
 related: true
 ---

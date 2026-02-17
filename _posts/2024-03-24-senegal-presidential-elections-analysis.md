@@ -19,7 +19,6 @@ tags:
   - OCR
   - Election Analysis
 author_profile: true
-comments: true
 share: true
 related: true
 ---
