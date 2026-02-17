@@ -3,14 +3,12 @@ layout: home
 author_profile: true
 header:
   overlay_color: "#000"
-  overlay_filter: "0.5"
+  overlay_filter: "0.2"
   overlay_image: /assets/images/hero-image.jpg
   actions:
     - label: "Connect on LinkedIn"
       url: "https://www.linkedin.com/in/musa-touray/"
-excerpt: "Data Engineering & AI musings"
-intro:
-  - excerpt: 'Specializing in **Power BI**, **Data Visualization**, and **Analytics Automation**. Experienced in creating real-time dashboards, business intelligence solutions, and data-driven applications using the Microsoft Power Platform.'
+excerpt: "Data and AI musings"
 feature_row:
   - image_path: /assets/images/gambia-presidential-elections.jpg
     alt: "Real-Time Presidential Elections"
@@ -33,33 +31,8 @@ feature_row:
     url: "/senegal-presidential-elections-analysis/"
     btn_label: "Read More"
     btn_class: "btn--primary"
-feature_row2:
-  - image_path: /assets/images/pl300.png
-    alt: "Microsoft Certified: Power BI Data Analyst Associate"
-    title: "Microsoft Certified"
-    excerpt: '**Power BI Data Analyst Associate (PL-300)**<br>
-    **Power Platform App Maker Associate (PL-100)**<br>
-    **Azure Fundamentals (AZ-900)**<br>
-    **Power Platform Fundamentals (PL-900)**'
-    url: "https://www.credly.com/users/musa-touray"
-    btn_label: "View Credentials"
-    btn_class: "btn--info"
 ---
-
-{% include feature_row id="intro" type="center" %}
 
 ## Featured Projects
 
 {% include feature_row %}
-
-## Certifications
-
-{% include feature_row id="feature_row2" type="left" %}
-
-## Latest Posts
-
-<div class="entries-{{ page.entries_layout | default: 'list' }}">
-{% for post in site.posts limit:3 %}
-  {% include archive-single.html type=page.entries_layout %}
-{% endfor %}
-</div>

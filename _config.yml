@@ -6,7 +6,7 @@ minimal_mistakes_skin: "default"
 locale: "en-US"
 title: "MusaDataJournal"
 title_separator: "|"
-subtitle: "How I do it"
+subtitle: "Learn, Apply, Repeat"
 name: "Musa Touray"
 description: "Portfolio showcasing Power BI, data visualization, and analytics automation projects by Microsoft certified professional Musa Touray."
 url: "https://musatouray.github.io"
@@ -34,7 +34,7 @@ analytics:
 # Site Author
 author:
   name: "Musa Touray"
-  avatar: "/assets/images/musatouray-avatar.png"
+  avatar: "/assets/images/profile-image.jpg"
   bio: "Data Engineer, Analytics Engineer and Microsoft Certified Fabric Engineer"
   location: "New York, USA"
   email: "amigomusa@amigomusa.com"
@@ -189,16 +189,16 @@ defaults:
                 <img src="/assets/images/DP600.svg" alt="DP-600" style="width:100%;height:60px;object-fit:contain;display:block;">
               </a>
               <a href="https://learn.microsoft.com/api/credentials/share/en-us/MusaTouray-8407/C6B788CBFBA3A25?sharingId=8152FDFBCA0A470C" target="_blank" rel="noopener noreferrer" title="PL-300: Power BI Data Analyst Associate">
-                <img src="/assets/images/pl300.png" alt="PL-300" style="width:100%;height:60px;object-fit:contain;display:block;">
+                <img src="/assets/images/PL300.png" alt="PL-300" style="width:100%;height:60px;object-fit:contain;display:block;">
               </a>
               <a href="https://learn.microsoft.com/api/credentials/share/en-us/MusaTouray-8407/C681AF9004DA6DDC?sharingId=8152FDFBCA0A470C" target="_blank" rel="noopener noreferrer" title="PL-100: Power Platform App Maker Associate">
-                <img src="/assets/images/pl100.png" alt="PL-100" style="width:100%;height:60px;object-fit:contain;display:block;">
+                <img src="/assets/images/PL100.png" alt="PL-100" style="width:100%;height:60px;object-fit:contain;display:block;">
               </a>
               <a href="https://learn.microsoft.com/api/credentials/share/en-us/MusaTouray-8407/BEAC57D934C0B721?sharingId=8152FDFBCA0A470C" target="_blank" rel="noopener noreferrer" title="DP-900: Azure Data Fundamentals">
-                <img src="/assets/images/az900.png" alt="DP-900" style="width:100%;height:60px;object-fit:contain;display:block;">
+                <img src="/assets/images/DP900.png" alt="DP-900" style="width:100%;height:60px;object-fit:contain;display:block;">
               </a>
               <a href="https://learn.microsoft.com/api/credentials/share/en-us/MusaTouray-8407/7B7D8410CC7881FC?sharingId=8152FDFBCA0A470C" target="_blank" rel="noopener noreferrer" title="PL-900: Power Platform Fundamentals">
-                <img src="/assets/images/pl900.png" alt="PL-900" style="width:100%;height:60px;object-fit:contain;display:block;">
+                <img src="/assets/images/PL900.png" alt="PL-900" style="width:100%;height:60px;object-fit:contain;display:block;">
               </a>
             </div>
   # _pages
