@@ -35,8 +35,8 @@ analytics:
 author:
   name: "Musa Touray"
   avatar: "/assets/images/musatouray-avatar.png"
-  bio: "Microsoft certified Power BI and PowerApps developer specializing in data visualization, analytics automation, and real-time reporting solutions."
-  location: "The Gambia"
+  bio: "Data Engineer, Analytics Engineer and Microsoft Certified Fabric Engineer"
+  location: "New York, USA"
   email: "amigomusa@amigomusa.com"
   links:
     - label: "LinkedIn"
@@ -181,11 +181,25 @@ defaults:
       sidebar:
         - title: "Certifications"
           text: |
-            <div style="text-align: center;">
-            <a href="https://www.credly.com/badges/ce7cb140-8334-4713-a786-0d1f463ae698" target="_blank" rel="noopener noreferrer"><img src="/assets/images/pl300.png" alt="PL-300" style="width:100%;max-width:150px;margin-bottom:10px;"></a>
-            <a href="https://www.credly.com/badges/0c890e52-33f9-4111-ba2b-ae95c77d5864" target="_blank" rel="noopener noreferrer"><img src="/assets/images/pl100.png" alt="PL-100" style="width:100%;max-width:150px;margin-bottom:10px;"></a>
-            <a href="https://www.credly.com/badges/2c01d8be-51cc-424d-9f86-4c2a5c93dc67" target="_blank" rel="noopener noreferrer"><img src="/assets/images/az900.png" alt="AZ-900" style="width:100%;max-width:150px;margin-bottom:10px;"></a>
-            <a href="https://www.credly.com/badges/25ad2b9a-ef69-4d72-9b94-095b7f863053" target="_blank" rel="noopener noreferrer"><img src="/assets/images/pl900.png" alt="PL-900" style="width:100%;max-width:150px;margin-bottom:10px;"></a>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:4px;">
+              <a href="https://learn.microsoft.com/api/credentials/share/en-us/MusaTouray-8407/899D4BE1D3B96319?sharingId=8152FDFBCA0A470C" target="_blank" rel="noopener noreferrer" title="DP-700: Fabric Analytics Engineer Associate">
+                <img src="/assets/images/DP700.svg" alt="DP-700" style="width:100%;height:60px;object-fit:contain;display:block;">
+              </a>
+              <a href="https://learn.microsoft.com/api/credentials/share/en-us/MusaTouray-8407/5638030E04B976C4?sharingId=8152FDFBCA0A470C" target="_blank" rel="noopener noreferrer" title="DP-600: Fabric Analytics Engineer">
+                <img src="/assets/images/DP600.svg" alt="DP-600" style="width:100%;height:60px;object-fit:contain;display:block;">
+              </a>
+              <a href="https://learn.microsoft.com/api/credentials/share/en-us/MusaTouray-8407/C6B788CBFBA3A25?sharingId=8152FDFBCA0A470C" target="_blank" rel="noopener noreferrer" title="PL-300: Power BI Data Analyst Associate">
+                <img src="/assets/images/pl300.png" alt="PL-300" style="width:100%;height:60px;object-fit:contain;display:block;">
+              </a>
+              <a href="https://learn.microsoft.com/api/credentials/share/en-us/MusaTouray-8407/C681AF9004DA6DDC?sharingId=8152FDFBCA0A470C" target="_blank" rel="noopener noreferrer" title="PL-100: Power Platform App Maker Associate">
+                <img src="/assets/images/pl100.png" alt="PL-100" style="width:100%;height:60px;object-fit:contain;display:block;">
+              </a>
+              <a href="https://learn.microsoft.com/api/credentials/share/en-us/MusaTouray-8407/BEAC57D934C0B721?sharingId=8152FDFBCA0A470C" target="_blank" rel="noopener noreferrer" title="DP-900: Azure Data Fundamentals">
+                <img src="/assets/images/az900.png" alt="DP-900" style="width:100%;height:60px;object-fit:contain;display:block;">
+              </a>
+              <a href="https://learn.microsoft.com/api/credentials/share/en-us/MusaTouray-8407/7B7D8410CC7881FC?sharingId=8152FDFBCA0A470C" target="_blank" rel="noopener noreferrer" title="PL-900: Power Platform Fundamentals">
+                <img src="/assets/images/pl900.png" alt="PL-900" style="width:100%;height:60px;object-fit:contain;display:block;">
+              </a>
             </div>
   # _pages
   - scope:

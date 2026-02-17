@@ -4,13 +4,11 @@ author_profile: true
 header:
   overlay_color: "#000"
   overlay_filter: "0.5"
-  overlay_image: /assets/images/musatouray-bg.png
+  overlay_image: /assets/images/hero-image.jpg
   actions:
-    - label: "View Portfolio"
-      url: "/portfolio/"
-    - label: "About Me"
-      url: "/about/"
-excerpt: "Microsoft Certified Power BI & PowerApps Developer | Data Analytics Portfolio"
+    - label: "Connect on LinkedIn"
+      url: "https://www.linkedin.com/in/musa-touray/"
+excerpt: "Data Engineering & AI musings"
 intro:
   - excerpt: 'Specializing in **Power BI**, **Data Visualization**, and **Analytics Automation**. Experienced in creating real-time dashboards, business intelligence solutions, and data-driven applications using the Microsoft Power Platform.'
 feature_row:
