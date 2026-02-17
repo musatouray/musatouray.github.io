@@ -4,14 +4,13 @@
 
 @charset "utf-8";
 
-/* Custom brand colors for data analytics portfolio */
-$primary-color: #0066cc; /* Professional blue for data/tech */
-$link-color: #0066cc;
-$masthead-link-color: $primary-color;
-$navicon-link-color-hover: mix(#fff, $primary-color, 25%);
-
-/* Import Minimal Mistakes theme */
+/* Import skin first, then override variables, then import main theme */
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
+
+/* Custom brand colors - set AFTER skin, BEFORE main theme import */
+$primary-color: #0066cc;
+$link-color: #0066cc;
+
 @import "minimal-mistakes";
 
 /* Custom overrides */
