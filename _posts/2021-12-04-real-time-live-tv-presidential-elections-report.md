@@ -18,7 +18,6 @@ tags:
   - Live Reporting
   - National TV Broadcast
 author_profile: true
-comments: true
 share: true
 related: true
 ---

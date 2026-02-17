@@ -18,11 +18,6 @@ masthead_title: # overrides the website title displayed in the masthead
 breadcrumbs: true
 words_per_minute: 200
 
-# Comments (Disqus)
-comments:
-  provider: "disqus"
-  disqus:
-    shortname: "portfoliowebsite"
 
 # Analytics
 analytics:
@@ -162,7 +157,7 @@ compress_html:
 collections:
   portfolio:
     output: true
-    permalink: /:collection/:path/
+    permalink: /projects/:path/
 
 # Defaults
 defaults:
@@ -174,7 +169,6 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: true
       share: true
       related: true
       show_date: true
