@@ -1,0 +1,16 @@
+# Main navigation links
+main:
+  - title: "Home"
+    url: /
+  - title: "Portfolio"
+    url: /portfolio/
+  - title: "About"
+    url: /about/
+  - title: "Skills"
+    url: /skills/
+  - title: "Resume"
+    url: /resume/
+  - title: "Categories"
+    url: /categories/
+  - title: "Contact"
+    url: /contact/

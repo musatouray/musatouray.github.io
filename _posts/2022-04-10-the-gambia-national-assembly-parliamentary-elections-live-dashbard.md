@@ -1,9 +1,26 @@
 ---
-layout: post
-title:  "The Gambia National Assembly / Parliamentary Elections Live Dashboard"
-author: john
-categories: [ Power BI, Data Visualization, Real-Time Analytics]
-image: assets/images/gambia-parliamentary-elections.jpg
+layout: single
+title: "The Gambia National Assembly / Parliamentary Elections Live Dashboard"
+excerpt: "Continuation of live election reporting with real-time parliamentary election results using DirectQuery and PowerApps integration."
+header:
+  teaser: /assets/images/gambia-parliamentary-elections.jpg
+  overlay_image: /assets/images/gambia-parliamentary-elections.jpg
+  overlay_filter: 0.5
+categories:
+  - Power BI
+  - Data Visualization
+  - Real-Time Analytics
+tags:
+  - Power BI
+  - PowerApps
+  - Azure SQL
+  - DirectQuery
+  - Live Reporting
+  - Parliamentary Elections
+author_profile: true
+comments: true
+share: true
+related: true
 ---
 This is a continuation of the above presidential election live dashboard. This project also uses directquery mode to connect to an Azure SQL database. Because it is live TV reporting, I created a Powerapp which feeds incoming election results to the database and that in turn populates the dashboard via refresh set at every 30 seconds.
 
