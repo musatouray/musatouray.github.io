@@ -4,9 +4,9 @@ minimal_mistakes_skin: "default"
 
 # Site Settings
 locale: "en-US"
-title: "Musa Touray Portfolio"
+title: "MusaDataJournal"
 title_separator: "|"
-subtitle: "Data Analytics & Power BI Portfolio"
+subtitle: "How I do it"
 name: "Musa Touray"
 description: "Portfolio showcasing Power BI, data visualization, and analytics automation projects by Microsoft certified professional Musa Touray."
 url: "https://musatouray.github.io"
