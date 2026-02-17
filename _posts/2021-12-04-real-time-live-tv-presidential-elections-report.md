@@ -1,10 +1,26 @@
 ---
-layout: post
-title:  "Real-Time Live TV Presidential Elections Report"
-author: john
-categories: [ Power BI, Data Visualization, Real-Time Analytics]
-image: assets/images/gambia-presidential-elections.jpg
-featured: true
+layout: single
+title: "Real-Time Live TV Presidential Elections Report"
+excerpt: "Broadcasting live presidential election results on national TV using Power BI, PowerApps, and Azure SQL with 30-second refresh intervals."
+header:
+  teaser: /assets/images/gambia-presidential-elections.jpg
+  overlay_image: /assets/images/gambia-presidential-elections.jpg
+  overlay_filter: 0.5
+categories:
+  - Power BI
+  - Data Visualization
+  - Real-Time Analytics
+tags:
+  - Power BI
+  - PowerApps
+  - Azure SQL
+  - DirectQuery
+  - Live Reporting
+  - National TV Broadcast
+author_profile: true
+comments: true
+share: true
+related: true
 ---
 This project is special to me as it is about national service. I was contracted by the National TV Station of The Gambia (my country) to help broadcast on the national TV, live results of 2021 presidential election.
 

@@ -1,0 +1,65 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+
+/* Custom brand colors for data analytics portfolio */
+$primary-color: #0066cc; /* Professional blue for data/tech */
+$link-color: #0066cc;
+$masthead-link-color: $primary-color;
+$navicon-link-color-hover: mix(#fff, $primary-color, 25%);
+
+/* Import Minimal Mistakes theme */
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
+@import "minimal-mistakes";
+
+/* Custom overrides */
+.page__hero--overlay {
+  padding: 5em 0;
+}
+
+.archive__item-teaser img {
+  border-radius: 4px;
+}
+
+/* Better iframe responsiveness for Power BI embeds */
+.page__content iframe {
+  max-width: 100%;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  margin: 1.5em 0;
+}
+
+/* Certification badges styling */
+.sidebar__right img {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.sidebar__right img:hover {
+  transform: scale(1.05);
+}
+
+/* Feature row enhancements */
+.feature__item {
+  margin-bottom: 2em;
+}
+
+.feature__item-teaser img {
+  border-radius: 8px;
+}
+
+/* Improve author profile styling */
+.author__avatar img {
+  border: 3px solid $primary-color;
+}
+
+/* Better button styles */
+.btn--primary {
+  background-color: $primary-color;
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
