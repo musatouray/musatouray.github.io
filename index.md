@@ -7,19 +7,9 @@ author_profile: false
 
 <section class="home-hero">
 
-  <!-- Top row: logo left + greeting centred — same vertical level -->
-  <div class="home-hero__header">
-    <div class="home-hero__logo-col">
-      <a href="/" aria-label="Home">
-        <img src="/assets/images/logo_2.png" alt="" class="home-hero__logo-img">
-      </a>
-    </div>
-    <h1 class="home-hero__name">Hi, I'm <span>Musa</span></h1>
-    <div class="home-hero__header-spacer"></div>
-  </div>
-
   <!-- Centred profile content -->
   <div class="home-hero__inner">
+    <h1 class="home-hero__name">Hi, I'm <span>Musa</span></h1>
     <img src="/assets/images/profile-image.jpg" alt="Musa Touray" class="home-hero__avatar">
     <div class="home-hero__roles">
       <span>Data Engineer</span>
