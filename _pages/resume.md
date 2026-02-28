@@ -9,12 +9,7 @@ classes: light-hero
 header:
   overlay_color: "#f0f4f8"
   overlay_filter: "1"
----
-
-## Professional Summary
-
-Data Engineer with 5+ years of experience building data pipelines, dataflows, and semantic models across the Microsoft Fabric and Azure ecosystem. Delivered enterprise analytics solutions serving Customer Experience, Finance, and Operations teams. Holds dual Fabric certifications (DP-700 and DP-600) with hands-on expertise in ETL/ELT pipelines, Lakehouse architecture, Python notebooks, and Power BI.
-
+excerpt: "Data Engineer with 5+ years of experience building data pipelines, dataflows, and semantic models across the Microsoft Fabric and Azure ecosystem. Delivered enterprise analytics solutions serving Customer Experience, Finance, and Operations teams. Holds dual Fabric certifications (DP-700 and DP-600) with hands-on expertise in ETL/ELT pipelines, Lakehouse architecture, Python notebooks, and Power BI."
 ---
 
 ## Technical Skills

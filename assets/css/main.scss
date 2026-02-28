@@ -162,15 +162,17 @@ h1, h2, h3, h4, h5, h6 {
   color: #0F1729 !important;
 }
 
-/* Bio and location: same 13px as social links */
-.author__bio {
-  font-family: var(--font-sans);
+/* Bio, location and their inner <p> — target all levels for MM's markup */
+.author__bio,
+.author__bio p {
+  font-family: var(--font-sans) !important;
   font-size: 13px !important;
-  color: var(--color-muted);
+  color: var(--color-muted) !important;
 }
 
 .author__location,
-p.author__location {
+.author__location p,
+.author__location * {
   font-family: var(--font-sans) !important;
   font-size: 13px !important;
   color: var(--color-muted) !important;
@@ -677,4 +679,109 @@ p.author__location {
     line-height: 1.7142857;
     margin: 0;
   }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   POST / ARTICLE PAGE ELEMENTS
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ─── Taxonomy tag chips — mirror filter buttons ─────────────────────── */
+.page__taxonomy-item,
+.page__taxonomy-item a {
+  display: inline-flex !important;
+  align-items: center;
+  padding: 0.3rem 0.8rem !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 9999px !important;
+  background: #fff !important;
+  color: var(--color-text) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  transition: background 0.15s ease, border-color 0.15s ease,
+              color 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    background: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: #fff !important;
+    box-shadow: 0 4px 12px rgba(255,102,52,.25);
+  }
+}
+
+/* ─── Share buttons — mirror filter buttons ──────────────────────────── */
+.page__share-title {
+  font-family: var(--font-sans);
+  font-size: 12px !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-muted);
+}
+
+.page__share a,
+.page__share .btn {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.8rem !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 9999px !important;
+  background: #fff !important;
+  color: var(--color-text) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: #fff !important;
+  }
+
+  /* Override MM's coloured social btn backgrounds */
+  &.btn--twitter, &.btn--facebook, &.btn--linkedin, &.btn--reddit {
+    background: #fff !important;
+    color: var(--color-text) !important;
+
+    &:hover {
+      background: var(--color-primary) !important;
+      color: #fff !important;
+    }
+  }
+}
+
+/* ─── Previous / Next pagination — small, 12px ───────────────────────── */
+.page__pagination {
+  .pagination--pager {
+    font-family: var(--font-sans) !important;
+    font-size: 12px !important;
+    font-weight: 500;
+    padding: 0.35rem 0.9rem !important;
+    border: 1px solid var(--color-border) !important;
+    border-radius: 9999px !important;
+    background: #fff !important;
+    color: var(--color-text) !important;
+    text-decoration: none !important;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+    &:hover {
+      background: var(--color-primary) !important;
+      border-color: var(--color-primary) !important;
+      color: #fff !important;
+    }
+  }
+}
+
+/* ─── Post meta (Updated date, read time) ────────────────────────────── */
+.page__meta,
+.page__meta-date,
+.page__meta-readtime,
+.page__date {
+  font-family: var(--font-sans) !important;
+  font-size: 12px !important;
+  color: var(--color-muted) !important;
 }

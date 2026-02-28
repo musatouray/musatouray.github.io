@@ -15,7 +15,7 @@ repository: "musatouray/musatouray.github.io"
 teaser: # path of fallback teaser image
 logo: "/assets/images/logo_2.png"
 masthead_title: # overrides the website title displayed in the masthead
-breadcrumbs: true
+breadcrumbs: false
 words_per_minute: 200
 
 
