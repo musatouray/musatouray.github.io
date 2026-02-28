@@ -42,6 +42,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Remove underline on ALL link hovers site-wide */
+a,
+a:hover,
+a:focus,
+a:visited {
+  text-decoration: none !important;
+}
+
 /* All headings: Inter 18px #0F1729 — px avoids MM's responsive root scaling */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-sans) !important;
@@ -154,15 +162,18 @@ h1, h2, h3, h4, h5, h6 {
   color: #0F1729 !important;
 }
 
-/* Bio and location: same size as each other */
-.author__bio,
-.author__location,
-.author__location .fa,
-.author__location .fas,
-.author__location .fab {
+/* Bio and location: same 13px as social links */
+.author__bio {
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: 13px !important;
   color: var(--color-muted);
+}
+
+.author__location,
+p.author__location {
+  font-family: var(--font-sans) !important;
+  font-size: 13px !important;
+  color: var(--color-muted) !important;
 }
 
 .author__avatar img {
