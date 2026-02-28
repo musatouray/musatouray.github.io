@@ -5,9 +5,10 @@ permalink: /resume/
 author_profile: true
 toc: true
 toc_label: "Resume Sections"
+classes: light-hero
 header:
-  overlay_color: "#000"
-  overlay_filter: "0.5"
+  overlay_color: "#f0f4f8"
+  overlay_filter: "1"
 ---
 
 ## Professional Summary

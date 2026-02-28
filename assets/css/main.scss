@@ -7,25 +7,26 @@
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
 
 /* ─── Brand tokens (set AFTER skin, BEFORE main import) ─────────────── */
-$primary-color:       #3b82f6;
-$link-color:          #3b82f6;
-$link-color-hover:    #2563eb;
-$masthead-link-color: #0f172a;
-$masthead-link-color-hover: #3b82f6;
-$navicon-link-color-hover: #3b82f6;
+$primary-color:             #FF6634;
+$link-color:                #FF6634;
+$link-color-hover:          #e5501c;
+$masthead-link-color:       #0f172a;
+$masthead-link-color-hover: #FF6634;
+$navicon-link-color-hover:  #FF6634;
 
 @import "minimal-mistakes";
 
 /* ─── CSS Custom Properties ─────────────────────────────────────────── */
 :root {
   --color-bg:           #ffffff;
+  --color-nav-bg:       #f0f4f8;
   --color-text:         #0f172a;
   --color-muted:        #64748b;
   --color-border:       #e2e8f0;
   --color-surface:      #f8fafc;
-  --color-primary:      #3b82f6;
-  --color-primary-hover:#2563eb;
-  --color-primary-light:#eff6ff;
+  --color-primary:      #FF6634;
+  --color-primary-hover:#e5501c;
+  --color-primary-light:#fff0eb;
   --font-sans:          'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-display:       'Playfair Display', Georgia, serif;
   --radius:             0.5rem;
@@ -50,7 +51,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Navigation / Masthead ──────────────────────────────────────────── */
 .masthead {
-  background: var(--color-bg);
+  background: var(--color-nav-bg);
   border-bottom: 1px solid var(--color-border);
   box-shadow: var(--shadow-sm);
 
@@ -60,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .greedy-nav {
-  background: var(--color-bg);
+  background: var(--color-nav-bg);
 
   a {
     font-family: var(--font-sans);
@@ -113,6 +114,37 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* ─── Light hero (listing pages & resume) ────────────────────────────── */
+.light-hero .page__hero--overlay {
+  background: var(--color-nav-bg) !important;
+
+  .page__title {
+    color: var(--color-text) !important;
+    text-shadow: none !important;
+  }
+
+  .page__lead {
+    color: var(--color-muted) !important;
+    text-shadow: none !important;
+  }
+
+  .page__hero-caption {
+    color: var(--color-muted);
+  }
+
+  /* Restyle the hero CTA button for light bg */
+  .btn--light-outline {
+    border-color: var(--color-primary) !important;
+    color: var(--color-primary) !important;
+    background: transparent !important;
+
+    &:hover {
+      background: var(--color-primary) !important;
+      color: #fff !important;
+    }
+  }
+}
+
 /* ─── Author sidebar ─────────────────────────────────────────────────── */
 .author__name {
   font-family: var(--font-display);
@@ -151,6 +183,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ─── Page content ───────────────────────────────────────────────────── */
 .page__content {
   font-family: var(--font-sans);
+  font-size: 0.9375rem;
   line-height: 1.7;
   color: var(--color-text);
 
@@ -192,7 +225,7 @@ h1, h2, h3, h4, h5, h6 {
     background: #f1f5f9;
     border-radius: 0.25rem;
     padding: 0.1em 0.35em;
-    color: #1e40af;
+    color: #cc4a1a;
   }
 
   pre code {
@@ -303,23 +336,12 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--color-primary-hover);
     border-color: var(--color-primary-hover);
     color: #fff;
-    box-shadow: 0 4px 12px rgba(59, 130, 246, .35);
+    box-shadow: 0 4px 12px rgba(255, 102, 52, .35);
   }
 }
 
 .btn--info {
   &:hover { box-shadow: var(--shadow-sm); }
-}
-
-/* ─── Feature row (home page) ────────────────────────────────────────── */
-.feature__item {
-  margin-bottom: 2em;
-
-  &-teaser img { border-radius: var(--radius); }
-
-  .archive__item-title {
-    font-family: var(--font-display);
-  }
 }
 
 /* ─── Footer ─────────────────────────────────────────────────────────── */
@@ -389,24 +411,26 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--color-primary);
     border-color: var(--color-primary);
     color: #fff;
-    box-shadow: 0 4px 12px rgba(59,130,246,.3);
+    box-shadow: 0 4px 12px rgba(255,102,52,.3);
 
     img { opacity: 1; filter: brightness(10); }
   }
 }
 
-/* Project grid */
+/* Project / Musings shared intro */
 .projects-intro {
-  font-size: 1rem;
+  font-size: 0.9375rem;
   color: var(--color-muted);
   margin-bottom: 1.5rem;
   font-family: var(--font-sans);
 }
 
-.projects-grid {
+/* ─── Shared card grid ───────────────────────────────────────────────── */
+.projects-grid,
+.musings-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
+  gap: 1.75rem;
   margin-bottom: 2.5rem;
 
   @media (max-width: 1200px) { grid-template-columns: repeat(3, 1fr); }
@@ -414,6 +438,10 @@ h1, h2, h3, h4, h5, h6 {
   @media (max-width: 480px)  { grid-template-columns: 1fr; }
 }
 
+/* Musings grid top margin */
+.musings-grid { margin-top: 0.5rem; }
+
+/* ─── Project card ───────────────────────────────────────────────────── */
 .project-card {
   background: #fff;
   border: 1px solid var(--color-border);
@@ -452,11 +480,11 @@ h1, h2, h3, h4, h5, h6 {
   &__no-image {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--color-primary-light), #dbeafe);
+    background: linear-gradient(135deg, var(--color-primary-light), #ffe0d4);
   }
 
   &__body {
-    padding: 1rem 1.1rem 1.15rem;
+    padding: 1.1rem 1.25rem 1.25rem;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -471,7 +499,7 @@ h1, h2, h3, h4, h5, h6 {
 
   &__title {
     font-family: var(--font-display);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 700;
     line-height: 1.35;
     margin: 0 0 0.5rem;
@@ -485,7 +513,7 @@ h1, h2, h3, h4, h5, h6 {
 
   &__excerpt {
     font-family: var(--font-sans);
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--color-muted);
     line-height: 1.55;
     flex: 1;
@@ -494,7 +522,7 @@ h1, h2, h3, h4, h5, h6 {
 
   &__link {
     font-family: var(--font-sans);
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     font-weight: 600;
     color: var(--color-primary);
     text-decoration: none;
@@ -540,21 +568,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.9rem;
 }
 
-/* ═══════════════════════════════════════════════════════════════════════
-   MUSINGS PAGE — 4-column article card grid
-   ═══════════════════════════════════════════════════════════════════════ */
-
-.musings-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
-  margin-top: 0.5rem;
-
-  @media (max-width: 1200px) { grid-template-columns: repeat(3, 1fr); }
-  @media (max-width: 768px)  { grid-template-columns: repeat(2, 1fr); }
-  @media (max-width: 480px)  { grid-template-columns: 1fr; }
-}
-
+/* ─── Musing card ────────────────────────────────────────────────────── */
 .musing-card {
   background: #fff;
   border: 1px solid var(--color-border);
@@ -593,11 +607,11 @@ h1, h2, h3, h4, h5, h6 {
   &__no-image {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--color-primary-light), #dbeafe);
+    background: linear-gradient(135deg, var(--color-primary-light), #ffe0d4);
   }
 
   &__body {
-    padding: 1rem 1.1rem 1.15rem;
+    padding: 1.1rem 1.25rem 1.25rem;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -605,7 +619,7 @@ h1, h2, h3, h4, h5, h6 {
 
   &__title {
     font-family: var(--font-display);
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     font-weight: 700;
     line-height: 1.35;
     margin: 0 0 0.4rem;
@@ -629,7 +643,7 @@ h1, h2, h3, h4, h5, h6 {
 
   &__excerpt {
     font-family: var(--font-sans);
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--color-muted);
     line-height: 1.55;
     margin: 0;

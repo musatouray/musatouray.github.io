@@ -2,13 +2,12 @@
 layout: single
 title: Projects
 permalink: /projects/
-author_profile: true
+author_profile: false
 header:
-  overlay_color: "#000"
-  overlay_filter: "0.2"
-  overlay_image: /assets/images/hero-image.jpg
+  overlay_color: "#f0f4f8"
+  overlay_filter: "1"
 excerpt: "Data engineering and analytics projects."
-classes: wide
+classes: wide light-hero
 ---
 
 <p class="projects-intro">Explore my data engineering and analytics projects. Each project demonstrates my own practical learnings and reflections.</p>
@@ -66,7 +65,7 @@ classes: wide
       <h3 class="project-card__title">
         <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
       </h3>
-      <p class="project-card__excerpt">{{ project.excerpt | strip_html | truncate: 120 }}</p>
+      <p class="project-card__excerpt">{{ project.excerpt | strip_html | truncate: 90 }}</p>
       <a href="{{ project.url | relative_url }}" class="project-card__link">View Project &rarr;</a>
     </div>
   </div>
