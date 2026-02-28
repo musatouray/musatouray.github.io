@@ -27,7 +27,7 @@ I recently had an interesting request: build a matrix visual where the column he
 
 Here is what the final output looks like:
 
-![Matrix visual with dynamic weekly column headers](/assets/images/matrix-dynamic-headers-final.png)
+![Matrix visual with dynamic weekly column headers](/assets/images/matrix_table_with_dynamic_column_headers.png)
 
 ---
 

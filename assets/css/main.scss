@@ -98,8 +98,18 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .visible-links a {
-    &::before { background: var(--color-primary); }
-    &:hover   { color: var(--color-primary); }
+    /* Suppress MM's animated sliding underline bar */
+    &::before { display: none !important; }
+
+    /* Pill-hover style — identical to home hero nav */
+    padding: 0.4rem 0.9rem;
+    border-radius: 9999px;
+    transition: color 0.15s ease, background 0.15s ease;
+
+    &:hover {
+      color: var(--color-primary) !important;
+      background: rgba(255, 102, 52, 0.07);
+    }
   }
 
   /* Hide "MusaDataJournal" text next to logo — keep logo image */
@@ -599,6 +609,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-sans);
     font-size: 14px;
     font-weight: 500;
+    color: #fff !important;
     border-radius: 9999px;
     letter-spacing: 0.02em;
   }
