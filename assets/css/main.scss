@@ -28,7 +28,6 @@ $navicon-link-color-hover:  #FF6634;
   --color-primary-hover:#e5501c;
   --color-primary-light:#fff0eb;
   --font-sans:          'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-display:       'Playfair Display', Georgia, serif;
   --radius:             0.5rem;
   --shadow-sm:          0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
   --shadow-md:          0 4px 12px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.04);
@@ -43,11 +42,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* All headings: Inter, 18px, #0F1729 */
+/* All headings: Inter 18px #0F1729 — px avoids MM's responsive root scaling */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-sans);
-  font-size: 1.125rem;
-  color: #0F1729;
+  font-family: var(--font-sans) !important;
+  font-size: 18px !important;
+  color: #0F1729 !important;
   letter-spacing: -0.01em;
 }
 
@@ -57,9 +56,7 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 1px solid var(--color-border);
   box-shadow: var(--shadow-sm);
 
-  &__inner-wrap {
-    font-family: var(--font-sans);
-  }
+  &__inner-wrap { font-family: var(--font-sans); }
 }
 
 .greedy-nav {
@@ -67,14 +64,12 @@ h1, h2, h3, h4, h5, h6 {
 
   a {
     font-family: var(--font-sans);
-    font-size: 0.875rem;
+    font-size: 14px;
     font-weight: 500;
     color: var(--color-text);
     letter-spacing: 0.01em;
 
-    &:hover {
-      color: var(--color-primary);
-    }
+    &:hover { color: var(--color-primary); }
   }
 
   .visible-links a {
@@ -85,7 +80,7 @@ h1, h2, h3, h4, h5, h6 {
   .site-title {
     font-family: var(--font-sans);
     font-weight: 700;
-    font-size: 1.125rem;
+    font-size: 18px !important;
     color: var(--color-text);
     letter-spacing: -0.01em;
 
@@ -105,16 +100,16 @@ h1, h2, h3, h4, h5, h6 {
   background-size: cover;
 
   .page__title {
-    font-family: var(--font-sans);
-    font-size: 1.125rem;
+    font-family: var(--font-sans) !important;
+    font-size: 18px !important;
     font-weight: 700;
-    color: #fff;
+    color: #fff !important;
     text-shadow: 0 2px 8px rgba(0,0,0,.35);
   }
 
   .page__lead {
     font-family: var(--font-sans);
-    font-size: 0.875rem;
+    font-size: 14px;
     text-shadow: 0 1px 4px rgba(0,0,0,.3);
   }
 }
@@ -124,24 +119,21 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--color-nav-bg) !important;
 
   .page__title {
-    font-family: var(--font-sans);
-    font-size: 1.125rem;
+    font-family: var(--font-sans) !important;
+    font-size: 18px !important;
     color: #0F1729 !important;
     text-shadow: none !important;
   }
 
   .page__lead {
     font-family: var(--font-sans);
-    font-size: 0.875rem;
+    font-size: 14px;
     color: var(--color-muted) !important;
     text-shadow: none !important;
   }
 
-  .page__hero-caption {
-    color: var(--color-muted);
-  }
+  .page__hero-caption { color: var(--color-muted); }
 
-  /* Restyle the hero CTA button for light bg */
   .btn--light-outline {
     border-color: var(--color-primary) !important;
     color: var(--color-primary) !important;
@@ -156,15 +148,20 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Author sidebar ─────────────────────────────────────────────────── */
 .author__name {
-  font-family: var(--font-sans);
-  font-size: 1.125rem;
+  font-family: var(--font-sans) !important;
+  font-size: 18px !important;
   font-weight: 700;
-  color: #0F1729;
+  color: #0F1729 !important;
 }
 
-.author__bio {
+/* Bio and location: same size as each other */
+.author__bio,
+.author__location,
+.author__location .fa,
+.author__location .fas,
+.author__location .fab {
   font-family: var(--font-sans);
-  font-size: 0.875rem;
+  font-size: 13px;
   color: var(--color-muted);
 }
 
@@ -173,18 +170,17 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50%;
 }
 
-/* Social links: 12px Inter */
-.author__urls-wrapper {
-  font-family: var(--font-sans);
-}
+/* Social links: same size as location text */
+.author__urls-wrapper { font-family: var(--font-sans); }
 
 .author__urls {
   font-family: var(--font-sans);
-  font-size: 0.75rem;
 
-  li a {
-    font-family: var(--font-sans);
-    font-size: 0.75rem;
+  li a,
+  li a span,
+  li a .label {
+    font-family: var(--font-sans) !important;
+    font-size: 13px !important;
     color: var(--color-muted);
 
     &:hover { color: var(--color-primary); }
@@ -204,28 +200,27 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Sidebar section titles (e.g. "Certifications") */
 .sidebar .sidebar__title,
 .sidebar h2,
 .sidebar h3,
 .sidebar h4 {
-  font-family: var(--font-sans);
-  font-size: 1.125rem;
+  font-family: var(--font-sans) !important;
+  font-size: 18px !important;
   font-weight: 700;
-  color: #0F1729;
+  color: #0F1729 !important;
 }
 
 /* ─── Page content ───────────────────────────────────────────────────── */
 .page__content {
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
+  font-size: 15px;
   line-height: 1.7;
   color: var(--color-text);
 
   h2, h3, h4 {
-    font-family: var(--font-sans);
-    font-size: 1.125rem;
-    color: #0F1729;
+    font-family: var(--font-sans) !important;
+    font-size: 18px !important;
+    color: #0F1729 !important;
     border-bottom: 1px solid var(--color-border);
     padding-bottom: 0.25em;
     margin-top: 2em;
@@ -238,7 +233,6 @@ h1, h2, h3, h4, h5, h6 {
     &:hover { text-decoration: underline; color: var(--color-primary-hover); }
   }
 
-  /* Power BI iframes */
   iframe {
     max-width: 100%;
     border: 1px solid var(--color-border);
@@ -246,13 +240,12 @@ h1, h2, h3, h4, h5, h6 {
     margin: 1.5em 0;
   }
 
-  /* Code blocks */
   pre {
     background: #f1f5f9;
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
     font-family: 'JetBrains Mono', 'Fira Code', monospace;
-    font-size: 0.82rem;
+    font-size: 13px;
     line-height: 1.6;
   }
 
@@ -283,9 +276,8 @@ h1, h2, h3, h4, h5, h6 {
     p { margin: 0; }
   }
 
-  /* Tables */
   table {
-    font-size: 0.875rem;
+    font-size: 14px;
     border-collapse: collapse;
     width: 100%;
 
@@ -312,12 +304,11 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   font-family: var(--font-sans);
-  font-size: 0.8rem;
 
   .nav__title {
     font-family: var(--font-sans);
     font-weight: 600;
-    font-size: 0.7rem;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--color-muted);
@@ -327,7 +318,7 @@ h1, h2, h3, h4, h5, h6 {
 
   a {
     color: var(--color-muted);
-    font-size: 0.78rem;
+    font-size: 12px;
 
     &:hover { color: var(--color-primary); }
   }
@@ -338,7 +329,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ─── Breadcrumbs ────────────────────────────────────────────────────── */
 .breadcrumbs {
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 12px;
   color: var(--color-muted);
 
   a { color: var(--color-muted); &:hover { color: var(--color-primary); } }
@@ -348,10 +339,10 @@ h1, h2, h3, h4, h5, h6 {
 .archive__item-teaser img { border-radius: var(--radius); }
 
 .archive__item-title {
-  font-family: var(--font-sans);
-  font-size: 1.125rem;
+  font-family: var(--font-sans) !important;
+  font-size: 18px !important;
   font-weight: 700;
-  color: #0F1729;
+  color: #0F1729 !important;
 }
 
 /* ─── Buttons ────────────────────────────────────────────────────────── */
@@ -386,7 +377,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ─── Footer ─────────────────────────────────────────────────────────── */
 .page__footer {
   font-family: var(--font-sans);
-  font-size: 0.8rem;
+  font-size: 13px;
   background: var(--color-surface);
   border-top: 1px solid var(--color-border);
   color: var(--color-muted);
@@ -398,7 +389,6 @@ h1, h2, h3, h4, h5, h6 {
    PROJECTS & MUSINGS — filter buttons, card grids
    ═══════════════════════════════════════════════════════════════════════ */
 
-/* Filter bar */
 .projects-filter {
   display: flex;
   flex-wrap: wrap;
@@ -408,18 +398,18 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 1px solid var(--color-border);
 }
 
-/* Filter buttons: Inter 14px */
+/* Filter buttons: Inter 12px */
 .filter-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.4rem 0.9rem;
+  padding: 0.35rem 0.85rem;
   border: 1px solid var(--color-border);
   border-radius: 9999px;
   background: #fff;
   color: var(--color-text);
   font-family: var(--font-sans);
-  font-size: 0.875rem;
+  font-size: 12px !important;
   font-weight: 500;
   cursor: pointer;
   transition: background 0.15s ease, border-color 0.15s ease,
@@ -427,8 +417,8 @@ h1, h2, h3, h4, h5, h6 {
   user-select: none;
 
   img {
-    width: 16px;
-    height: 16px;
+    width: 15px;
+    height: 15px;
     object-fit: contain;
     flex-shrink: 0;
     opacity: 0.75;
@@ -457,15 +447,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Project / Musings shared intro */
-.projects-intro {
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  color: var(--color-muted);
-  margin-bottom: 1.5rem;
-}
-
-/* ─── Shared card grid: 320px minimum column width ───────────────────── */
+/* ─── Shared card grid: 320px minimum ───────────────────────────────── */
 .projects-grid,
 .musings-grid {
   display: grid;
@@ -525,43 +507,36 @@ h1, h2, h3, h4, h5, h6 {
     flex: 1;
   }
 
-  &__tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.3rem;
-    margin-bottom: 0.5rem;
-  }
-
-  /* Card title: Inter 18px #0F1729 */
+  /* Title: Inter 18px #0F1729 */
   &__title {
-    font-family: var(--font-sans);
-    font-size: 1.125rem;
+    font-family: var(--font-sans) !important;
+    font-size: 18px !important;
     font-weight: 700;
     line-height: 1.3;
-    color: #0F1729;
+    color: #0F1729 !important;
     margin: 0 0 0.5rem;
 
     a {
-      color: #0F1729;
+      color: #0F1729 !important;
       text-decoration: none;
-      &:hover { color: var(--color-primary); text-decoration: none; }
+      &:hover { color: var(--color-primary) !important; text-decoration: none; }
     }
   }
 
-  /* Card text: Inter 14px #6B7280 */
+  /* Excerpt: Inter 14px #6B7280 */
   &__excerpt {
     font-family: var(--font-sans);
-    font-size: 0.875rem;
-    color: #6B7280;
+    font-size: 14px !important;
+    color: #6B7280 !important;
     line-height: 1.7142857;
     flex: 1;
     margin-bottom: 0.85rem;
   }
 
-  /* Card link: Inter 14px */
+  /* Link: Inter 14px */
   &__link {
     font-family: var(--font-sans);
-    font-size: 0.875rem;
+    font-size: 14px !important;
     font-weight: 600;
     color: var(--color-primary);
     text-decoration: none;
@@ -572,7 +547,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .project-tag {
   font-family: var(--font-sans);
-  font-size: 0.65rem;
+  font-size: 10px;
   font-weight: 600;
   padding: 0.12rem 0.5rem;
   border-radius: 9999px;
@@ -590,7 +565,7 @@ h1, h2, h3, h4, h5, h6 {
   .load-more-btn {
     padding: 0.65rem 2.5rem;
     font-family: var(--font-sans);
-    font-size: 0.875rem;
+    font-size: 14px;
     font-weight: 500;
     border-radius: 9999px;
     letter-spacing: 0.02em;
@@ -604,7 +579,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 3rem 1rem;
   color: var(--color-muted);
   font-family: var(--font-sans);
-  font-size: 0.875rem;
+  font-size: 14px;
 }
 
 /* ─── Musing card ────────────────────────────────────────────────────── */
@@ -656,26 +631,26 @@ h1, h2, h3, h4, h5, h6 {
     flex: 1;
   }
 
-  /* Card title: Inter 18px #0F1729 */
+  /* Title: Inter 18px #0F1729 */
   &__title {
-    font-family: var(--font-sans);
-    font-size: 1.125rem;
+    font-family: var(--font-sans) !important;
+    font-size: 18px !important;
     font-weight: 700;
     line-height: 1.3;
-    color: #0F1729;
+    color: #0F1729 !important;
     margin: 0 0 0.4rem;
 
     a {
-      color: #0F1729;
+      color: #0F1729 !important;
       text-decoration: none;
-      &:hover { color: var(--color-primary); text-decoration: none; }
+      &:hover { color: var(--color-primary) !important; text-decoration: none; }
     }
   }
 
-  /* Date / read-time: keep small */
+  /* Date / read-time: 10px */
   &__meta {
     font-family: var(--font-sans);
-    font-size: 0.68rem;
+    font-size: 10px !important;
     color: #94a3b8;
     margin: 0 0 0.55rem;
     display: flex;
@@ -683,11 +658,11 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
   }
 
-  /* Card text: Inter 14px #6B7280 */
+  /* Excerpt: Inter 14px #6B7280 */
   &__excerpt {
     font-family: var(--font-sans);
-    font-size: 0.875rem;
-    color: #6B7280;
+    font-size: 14px !important;
+    color: #6B7280 !important;
     line-height: 1.7142857;
     margin: 0;
   }
