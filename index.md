@@ -6,15 +6,28 @@ author_profile: false
 ---
 
 <section class="home-hero">
+
+  <!-- Top row: logo left + greeting centred — same vertical level -->
+  <div class="home-hero__header">
+    <div class="home-hero__logo-col">
+      <a href="/" aria-label="Home">
+        <img src="/assets/images/logo_2.png" alt="" class="home-hero__logo-img">
+      </a>
+    </div>
+    <h1 class="home-hero__name">Hi, I'm <span>Musa</span></h1>
+    <div class="home-hero__header-spacer"></div>
+  </div>
+
+  <!-- Centred profile content -->
   <div class="home-hero__inner">
     <img src="/assets/images/profile-image.jpg" alt="Musa Touray" class="home-hero__avatar">
-    <h1 class="home-hero__name">Musa Touray</h1>
     <div class="home-hero__roles">
       <span>Data Engineer</span>
       <span>Power BI Developer</span>
       <span>Microsoft Fabric</span>
     </div>
     <p class="home-hero__bio">Data Engineer &amp; Analytics Engineer. Microsoft Certified Fabric and Power BI specialist building enterprise data solutions across the Azure ecosystem.</p>
+    <p class="home-hero__tagline">Learn, Apply, Repeat.</p>
     <div class="home-hero__divider"></div>
     <div class="home-hero__location">
       <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
@@ -32,11 +45,20 @@ author_profile: false
       </a>
     </div>
   </div>
+
+  <!-- Nav at the bottom border of the hero -->
+  <nav class="home-hero__nav" aria-label="Main navigation">
+    <a href="/">Home</a>
+    <a href="/musings/">Musings</a>
+    <a href="/projects/">Projects</a>
+    <a href="/resume/">Resume</a>
+  </nav>
+
 </section>
 
 ## Featured Projects
 
-<div class="projects-grid">
+<div class="projects-grid home-projects-grid">
   {% assign featured = site.portfolio | sort: "date" | reverse %}
   {% for project in featured %}
   {% assign tag_slugs = "" %}
