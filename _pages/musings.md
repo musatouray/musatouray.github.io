@@ -2,8 +2,12 @@
 layout: single
 title: "Musings"
 permalink: /musings/
-author_profile: true
-classes: wide
+author_profile: false
+header:
+  overlay_color: "#f0f4f8"
+  overlay_filter: "1"
+excerpt: "Data and AI reflections, techniques, and lessons learned."
+classes: wide light-hero
 ---
 
 <div class="musings-grid" id="musings-grid">

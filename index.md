@@ -1,38 +1,53 @@
 ---
-layout: home
-author_profile: true
+layout: single
+title: "Musa Touray"
+classes: wide light-hero
+author_profile: false
 header:
-  overlay_color: "#000"
-  overlay_filter: "0.2"
-  overlay_image: /assets/images/hero-image.jpg
+  overlay_color: "#f0f4f8"
+  overlay_filter: "1"
   actions:
     - label: "Connect on LinkedIn"
       url: "https://www.linkedin.com/in/musa-touray/"
-excerpt: "Data and AI musings"
-feature_row:
-  - image_path: /assets/images/gambia-presidential-elections.jpg
-    alt: "Real-Time Presidential Elections"
-    title: "Real-Time Live TV Presidential Elections Report"
-    excerpt: "Broadcasting live presidential election results on national TV using Power BI with 30-second refresh intervals and DirectQuery."
-    url: "/real-time-live-tv-presidential-elections-report/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-  - image_path: /assets/images/gambia-parliamentary-elections.jpg
-    alt: "Parliamentary Elections Dashboard"
-    title: "National Assembly Parliamentary Elections Dashboard"
-    excerpt: "Live TV reporting of parliamentary elections with PowerApps data capture and real-time Power BI visualization."
-    url: "/the-gambia-national-assembly-parliamentary-elections-live-dashbard/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-  - image_path: /assets/images/senegal_elections_analysis.jpg
-    alt: "Senegal Elections Analysis"
-    title: "Senegal Presidential Elections Analysis"
-    excerpt: "Near real-time election analysis using AI Builder OCR, PowerApps, and Power BI DirectQuery integration."
-    url: "/senegal-presidential-elections-analysis/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
+excerpt: "Data Engineer &middot; Power BI Developer &middot; Microsoft Fabric"
 ---
 
 ## Featured Projects
 
-{% include feature_row %}
+<div class="projects-grid">
+  {% assign featured = site.portfolio | sort: "date" | reverse %}
+  {% for project in featured %}
+  {% assign tag_slugs = "" %}
+  {% for tag in project.tags %}
+    {% assign slug = tag | downcase | replace: " ", "-" | replace: "_", "-" %}
+    {% assign tag_slugs = tag_slugs | append: slug | append: " " %}
+  {% endfor %}
+  <div class="project-card" data-tags="{{ tag_slugs | strip }}">
+    <a href="{{ project.url | relative_url }}" class="project-card__image-link">
+      {% if project.header.teaser %}
+      <img src="{{ project.header.teaser }}" alt="{{ project.title }}" loading="lazy">
+      {% else %}
+      <div class="project-card__no-image"></div>
+      {% endif %}
+    </a>
+    <div class="project-card__body">
+      {% if project.tags.size > 0 %}
+      <div class="project-card__tags">
+        {% for tag in project.tags limit:2 %}
+        <span class="project-tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+      <h3 class="project-card__title">
+        <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+      </h3>
+      <p class="project-card__excerpt">{{ project.excerpt | strip_html | truncate: 90 }}</p>
+      <a href="{{ project.url | relative_url }}" class="project-card__link">View Project &rarr;</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<div style="text-align:center; margin: -1rem 0 2.5rem;">
+  <a href="/projects/" class="btn btn--primary">View All Projects</a>
+</div>
