@@ -34,12 +34,20 @@ $navicon-link-color-hover:  #FF6634;
   --shadow-lg:          0 10px 24px rgba(0,0,0,.10), 0 4px 8px rgba(0,0,0,.04);
 }
 
+/* ─── Base reset ─────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 /* ─── Base typography ────────────────────────────────────────────────── */
 body {
   font-family: var(--font-sans);
   background: var(--color-bg);
   color: var(--color-text);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 /* Remove underline on ALL link hovers site-wide */
@@ -48,6 +56,15 @@ a:hover,
 a:focus,
 a:visited {
   text-decoration: none !important;
+}
+
+/* Keyboard-only focus ring — important for accessibility */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 3px;
 }
 
 /* All headings: Inter 18px #0F1729 — px avoids MM's responsive root scaling */
@@ -573,6 +590,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Load more */
 .load-more-container {
+  display: flex;
   justify-content: center;
   margin: 0.5rem 0 3rem;
 
@@ -792,26 +810,42 @@ h1, h2, h3, h4, h5, h6 {
    ═══════════════════════════════════════════════════════════════════════ */
 
 .home-page {
-  overflow-x: hidden;
+  /* clip instead of hidden: prevents scroll bar without blocking position:relative */
+  overflow-x: clip;
 
-  /* Hide MM's auto-rendered page title */
   .page__title { display: none !important; }
+  .masthead    { display: none !important; }
 
-  /* Hide masthead entirely — hero carries its own logo + nav */
-  .masthead { display: none !important; }
-
-  /* Strip all MM page layout spacing so hero bleeds to top and left edges */
+  /*
+   * Force every MM layout wrapper to be truly full-width with zero offset.
+   * MM adds float, margin-left and max-width to .page and siblings to
+   * accommodate the sidebar — we wipe those here so the hero can touch
+   * the viewport edges.
+   */
   #main,
   .page,
+  .sidebar,
   .page__inner-wrap,
   .page__content {
-    padding-top: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin-top: 0 !important;
+    float: none !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
   }
 
-  /* 3-column project grid on home page */
+  /*
+   * Re-introduce horizontal breathing room only for content that sits
+   * BELOW the full-bleed hero (h2, grid, buttons etc.).
+   */
+  .page__content > *:not(.home-hero) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    box-sizing: border-box;
+  }
+
+  /* 3-column grid on home page, responsive */
   .home-projects-grid {
     grid-template-columns: repeat(3, 1fr);
 
@@ -826,14 +860,15 @@ h1, h2, h3, h4, h5, h6 {
   padding: 2.5rem 3rem 0;
   text-align: center;
   margin-bottom: 3.5rem;
-  position: relative;
-  width: 100vw;
-  left: 50%;
-  transform: translateX(-50%);
+  /* Parent containers are forced to 100% width above, so width: 100% is all
+     we need — no transform tricks that fight with overflow-x: clip */
+  width: 100%;
+  box-sizing: border-box;
 
   /* ── Centred profile content ── */
   &__inner {
-    max-width: 520px;
+    /* No max-width — content flows naturally, centred by flexbox */
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
