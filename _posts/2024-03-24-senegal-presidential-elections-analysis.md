@@ -3,8 +3,8 @@ layout: single
 title: "Senegal Presidential Elections Analysis"
 excerpt: "Near real-time analysis of Senegal's presidential elections using Microsoft AI Builder, PowerApps, and Power BI DirectQuery."
 header:
-  teaser: /assets/images/senegal_elections_analysis.jpg
-  overlay_image: /assets/images/senegal_elections_analysis.jpg
+  teaser: /assets/images/senegal_elections_analysis.png
+  overlay_image: /assets/images/senegal_elections_analysis.png
   overlay_filter: 0.5
 categories:
   - Power BI

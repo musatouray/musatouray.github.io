@@ -2,7 +2,7 @@
 layout: single
 title: "Musa Touray"
 classes: wide light-hero
-author_profile: false
+author_profile: true
 header:
   overlay_color: "#f0f4f8"
   overlay_filter: "1"
