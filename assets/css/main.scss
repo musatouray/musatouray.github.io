@@ -10,7 +10,7 @@
 $primary-color:             #FF6634;
 $link-color:                #FF6634;
 $link-color-hover:          #e5501c;
-$masthead-link-color:       #0f172a;
+$masthead-link-color:       #0F1729;
 $masthead-link-color-hover: #FF6634;
 $navicon-link-color-hover:  #FF6634;
 
@@ -20,8 +20,8 @@ $navicon-link-color-hover:  #FF6634;
 :root {
   --color-bg:           #ffffff;
   --color-nav-bg:       #f0f4f8;
-  --color-text:         #0f172a;
-  --color-muted:        #64748b;
+  --color-text:         #0F1729;
+  --color-muted:        #6B7280;
   --color-border:       #e2e8f0;
   --color-surface:      #f8fafc;
   --color-primary:      #FF6634;
@@ -43,10 +43,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* All headings: Inter, 18px, #0F1729 */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  color: var(--color-text);
-  letter-spacing: -0.02em;
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  color: #0F1729;
+  letter-spacing: -0.01em;
 }
 
 /* ─── Navigation / Masthead ──────────────────────────────────────────── */
@@ -81,11 +83,11 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .site-title {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.125rem;
     color: var(--color-text);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
 
     &:hover { color: var(--color-primary); }
   }
@@ -103,13 +105,16 @@ h1, h2, h3, h4, h5, h6 {
   background-size: cover;
 
   .page__title {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
     font-weight: 700;
+    color: #fff;
     text-shadow: 0 2px 8px rgba(0,0,0,.35);
   }
 
   .page__lead {
     font-family: var(--font-sans);
+    font-size: 0.875rem;
     text-shadow: 0 1px 4px rgba(0,0,0,.3);
   }
 }
@@ -119,11 +124,15 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--color-nav-bg) !important;
 
   .page__title {
-    color: var(--color-text) !important;
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
+    color: #0F1729 !important;
     text-shadow: none !important;
   }
 
   .page__lead {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
     color: var(--color-muted) !important;
     text-shadow: none !important;
   }
@@ -147,14 +156,15 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Author sidebar ─────────────────────────────────────────────────── */
 .author__name {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
   font-weight: 700;
-  color: var(--color-text);
+  color: #0F1729;
 }
 
 .author__bio {
   font-family: var(--font-sans);
-  font-size: 0.82rem;
+  font-size: 0.875rem;
   color: var(--color-muted);
 }
 
@@ -163,11 +173,25 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50%;
 }
 
+/* Social links: 12px Inter */
 .author__urls-wrapper {
   font-family: var(--font-sans);
 }
 
-/* ─── Certification badges ───────────────────────────────────────────── */
+.author__urls {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+
+  li a {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: var(--color-muted);
+
+    &:hover { color: var(--color-primary); }
+  }
+}
+
+/* ─── Certification sidebar ──────────────────────────────────────────── */
 .sidebar__right img,
 .sidebar .sidebar__right img {
   border-radius: var(--radius);
@@ -180,6 +204,17 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Sidebar section titles (e.g. "Certifications") */
+.sidebar .sidebar__title,
+.sidebar h2,
+.sidebar h3,
+.sidebar h4 {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #0F1729;
+}
+
 /* ─── Page content ───────────────────────────────────────────────────── */
 .page__content {
   font-family: var(--font-sans);
@@ -188,7 +223,9 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-text);
 
   h2, h3, h4 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
+    color: #0F1729;
     border-bottom: 1px solid var(--color-border);
     padding-bottom: 0.25em;
     margin-top: 2em;
@@ -311,8 +348,10 @@ h1, h2, h3, h4, h5, h6 {
 .archive__item-teaser img { border-radius: var(--radius); }
 
 .archive__item-title {
-  font-family: var(--font-display);
-  font-size: 1rem;
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #0F1729;
 }
 
 /* ─── Buttons ────────────────────────────────────────────────────────── */
@@ -356,7 +395,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
-   PROJECTS PAGE — 4-column card grid with icon filter buttons
+   PROJECTS & MUSINGS — filter buttons, card grids
    ═══════════════════════════════════════════════════════════════════════ */
 
 /* Filter bar */
@@ -369,6 +408,7 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 1px solid var(--color-border);
 }
 
+/* Filter buttons: Inter 14px */
 .filter-btn {
   display: inline-flex;
   align-items: center;
@@ -379,7 +419,7 @@ h1, h2, h3, h4, h5, h6 {
   background: #fff;
   color: var(--color-text);
   font-family: var(--font-sans);
-  font-size: 0.78rem;
+  font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
   transition: background 0.15s ease, border-color 0.15s ease,
@@ -419,13 +459,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Project / Musings shared intro */
 .projects-intro {
-  font-size: 0.9375rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
   color: var(--color-muted);
   margin-bottom: 1.5rem;
-  font-family: var(--font-sans);
 }
 
-/* ─── Shared card grid ───────────────────────────────────────────────── */
+/* ─── Shared card grid: 320px minimum column width ───────────────────── */
 .projects-grid,
 .musings-grid {
   display: grid;
@@ -434,7 +474,6 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 2.5rem;
 }
 
-/* Musings grid top margin */
 .musings-grid { margin-top: 0.5rem; }
 
 /* ─── Project card ───────────────────────────────────────────────────── */
@@ -484,8 +523,6 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: column;
     flex: 1;
-    font-size: 0.875rem;
-    line-height: 1.7142857;
   }
 
   &__tags {
@@ -495,29 +532,33 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.5rem;
   }
 
+  /* Card title: Inter 18px #0F1729 */
   &__title {
-    font-family: var(--font-display);
-    font-size: 0.875rem;
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
     font-weight: 700;
-    line-height: 1.7142857;
+    line-height: 1.3;
+    color: #0F1729;
     margin: 0 0 0.5rem;
 
     a {
-      color: var(--color-text);
+      color: #0F1729;
       text-decoration: none;
       &:hover { color: var(--color-primary); text-decoration: none; }
     }
   }
 
+  /* Card text: Inter 14px #6B7280 */
   &__excerpt {
     font-family: var(--font-sans);
     font-size: 0.875rem;
-    color: var(--color-muted);
+    color: #6B7280;
     line-height: 1.7142857;
     flex: 1;
     margin-bottom: 0.85rem;
   }
 
+  /* Card link: Inter 14px */
   &__link {
     font-family: var(--font-sans);
     font-size: 0.875rem;
@@ -563,7 +604,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 3rem 1rem;
   color: var(--color-muted);
   font-family: var(--font-sans);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
 }
 
 /* ─── Musing card ────────────────────────────────────────────────────── */
@@ -613,24 +654,25 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: column;
     flex: 1;
-    font-size: 0.875rem;
-    line-height: 1.7142857;
   }
 
+  /* Card title: Inter 18px #0F1729 */
   &__title {
-    font-family: var(--font-display);
-    font-size: 0.875rem;
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
     font-weight: 700;
-    line-height: 1.7142857;
+    line-height: 1.3;
+    color: #0F1729;
     margin: 0 0 0.4rem;
 
     a {
-      color: var(--color-text);
+      color: #0F1729;
       text-decoration: none;
       &:hover { color: var(--color-primary); text-decoration: none; }
     }
   }
 
+  /* Date / read-time: keep small */
   &__meta {
     font-family: var(--font-sans);
     font-size: 0.68rem;
@@ -641,10 +683,11 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
   }
 
+  /* Card text: Inter 14px #6B7280 */
   &__excerpt {
     font-family: var(--font-sans);
     font-size: 0.875rem;
-    color: var(--color-muted);
+    color: #6B7280;
     line-height: 1.7142857;
     margin: 0;
   }
