@@ -25,9 +25,6 @@ author_profile: false
       <a href="https://github.com/musatouray" class="home-hero__social-link" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-github" aria-hidden="true"></i><span>GitHub</span>
       </a>
-      <a href="https://twitter.com/mosesgerrard" class="home-hero__social-link" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-twitter" aria-hidden="true"></i><span>Twitter</span>
-      </a>
     </div>
   </div>
 
@@ -77,6 +74,29 @@ author_profile: false
   {% endfor %}
 </div>
 
-<div style="text-align:center; margin: -1rem 0 2.5rem;">
-  <a href="/projects/" class="btn btn--primary">View All Projects</a>
+## Latest Musings
+
+<div class="projects-grid home-musings-grid">
+  {% assign recent_musings = site.posts | where_exp: "post", "post.categories contains 'Musings'" | sort: "date" | reverse %}
+  {% for post in recent_musings limit:3 %}
+  <div class="project-card">
+    <a href="{{ post.url | relative_url }}" class="project-card__image-link">
+      {% if post.header.teaser %}
+      <img src="{{ post.header.teaser }}" alt="{{ post.title }}" loading="lazy">
+      {% else %}
+      <div class="project-card__no-image"></div>
+      {% endif %}
+    </a>
+    <div class="project-card__body">
+      <div class="project-card__tags">
+        <span class="project-tag">{{ post.date | date: "%b %Y" }}</span>
+      </div>
+      <h3 class="project-card__title">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h3>
+      <p class="project-card__excerpt">{{ post.excerpt | strip_html | truncate: 90 }}</p>
+      <a href="{{ post.url | relative_url }}" class="project-card__link">Read More &rarr;</a>
+    </div>
+  </div>
+  {% endfor %}
 </div>

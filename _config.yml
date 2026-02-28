@@ -16,6 +16,8 @@ teaser: # path of fallback teaser image
 logo: "/assets/images/logo_2.png"
 masthead_title: # overrides the website title displayed in the masthead
 breadcrumbs: false
+atom_feed:
+  hide: true
 words_per_minute: 200
 
 
@@ -40,9 +42,6 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/musatouray"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/mosesgerrard"
 
 # Site Footer
 footer:
@@ -53,9 +52,6 @@ footer:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/musatouray"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/mosesgerrard"
 
 # Reading Files
 include:
