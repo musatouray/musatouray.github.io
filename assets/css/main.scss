@@ -785,3 +785,156 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 12px !important;
   color: var(--color-muted) !important;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   HOME PAGE — centered profile hero
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Hide MM's auto-rendered page title; hide overflow from full-bleed hero */
+.home-page {
+  overflow-x: hidden;
+
+  .page__title { display: none !important; }
+}
+
+/* ─── Profile hero ───────────────────────────────────────────────────── */
+.home-hero {
+  background: var(--color-nav-bg);
+  padding: 5rem 2rem 4.5rem;
+  text-align: center;
+  margin-bottom: 3.5rem;
+  /* Full-bleed: extends to viewport edges regardless of content container */
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+
+  &__inner {
+    max-width: 520px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Avatar */
+  &__avatar {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3.5px solid var(--color-primary);
+    box-shadow: 0 0 0 6px rgba(255, 102, 52, 0.12), var(--shadow-md);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 0 9px rgba(255, 102, 52, 0.12), var(--shadow-lg);
+    }
+  }
+
+  /* Name — override global h* 18px rule */
+  &__name {
+    font-family: var(--font-sans) !important;
+    font-size: 28px !important;
+    font-weight: 700;
+    color: #0F1729 !important;
+    letter-spacing: -0.025em;
+    margin: 0 0 0.75rem !important;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  /* Role tags */
+  &__roles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.375rem;
+    margin-bottom: 1.25rem;
+
+    span {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.22rem 0.75rem;
+      border-radius: 9999px;
+      background: var(--color-primary-light);
+      color: var(--color-primary);
+    }
+  }
+
+  /* Bio */
+  &__bio {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    color: var(--color-muted);
+    line-height: 1.7;
+    margin: 0 0 1.5rem;
+    max-width: 400px;
+  }
+
+  /* Orange accent divider */
+  &__divider {
+    width: 36px;
+    height: 3px;
+    background: var(--color-primary);
+    border-radius: 9999px;
+    margin: 0 auto 1.25rem;
+  }
+
+  /* Location */
+  &__location {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: var(--color-muted);
+    margin-bottom: 1.5rem;
+
+    i {
+      font-size: 12px;
+      color: var(--color-primary);
+    }
+  }
+
+  /* Social link row */
+  &__social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  &__social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 1.1rem;
+    border: 1.5px solid var(--color-border);
+    border-radius: 9999px;
+    background: #fff;
+    color: var(--color-text) !important;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    transition: background 0.2s ease, border-color 0.2s ease,
+                color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+
+    i { font-size: 14px; }
+    span { line-height: 1; }
+
+    &:hover {
+      background: var(--color-primary) !important;
+      border-color: var(--color-primary) !important;
+      color: #fff !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 102, 52, 0.3);
+    }
+  }
+}
