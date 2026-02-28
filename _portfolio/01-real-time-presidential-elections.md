@@ -2,8 +2,8 @@
 title: "Real-Time Live TV Presidential Elections Report"
 excerpt: "Broadcasting live presidential election results on national TV using Power BI, PowerApps, and Azure SQL with 30-second refresh intervals."
 header:
-  teaser: /assets/images/gambia-presidential-elections.jpg
-  overlay_image: /assets/images/gambia-presidential-elections.jpg
+  teaser: /assets/images/gambia-presidential-elections.png
+  overlay_image: /assets/images/gambia-presidential-elections.png
   overlay_filter: 0.5
 tags:
   - Power BI
