@@ -1,16 +1,38 @@
 ---
 layout: single
 title: "Musa Touray"
-classes: wide light-hero
-author_profile: true
-header:
-  overlay_color: "#f0f4f8"
-  overlay_filter: "1"
-  actions:
-    - label: "Connect on LinkedIn"
-      url: "https://www.linkedin.com/in/musa-touray/"
-excerpt: "Data Engineer &middot; Power BI Developer &middot; Microsoft Fabric"
+classes: wide home-page
+author_profile: false
 ---
+
+<section class="home-hero">
+  <div class="home-hero__inner">
+    <img src="/assets/images/profile-image.jpg" alt="Musa Touray" class="home-hero__avatar">
+    <h1 class="home-hero__name">Musa Touray</h1>
+    <div class="home-hero__roles">
+      <span>Data Engineer</span>
+      <span>Power BI Developer</span>
+      <span>Microsoft Fabric</span>
+    </div>
+    <p class="home-hero__bio">Data Engineer &amp; Analytics Engineer. Microsoft Certified Fabric and Power BI specialist building enterprise data solutions across the Azure ecosystem.</p>
+    <div class="home-hero__divider"></div>
+    <div class="home-hero__location">
+      <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+      New York, USA
+    </div>
+    <div class="home-hero__social">
+      <a href="https://www.linkedin.com/in/musa-touray/" class="home-hero__social-link" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span>
+      </a>
+      <a href="https://github.com/musatouray" class="home-hero__social-link" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-github" aria-hidden="true"></i><span>GitHub</span>
+      </a>
+      <a href="https://twitter.com/mosesgerrard" class="home-hero__social-link" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-twitter" aria-hidden="true"></i><span>Twitter</span>
+      </a>
+    </div>
+  </div>
+</section>
 
 ## Featured Projects
 
