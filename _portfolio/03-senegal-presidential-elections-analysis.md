@@ -2,8 +2,8 @@
 title: "Senegal Presidential Elections Analysis"
 excerpt: "Near real-time election analysis using AI Builder OCR, PowerApps, and Power BI DirectQuery integration."
 header:
-  teaser: /assets/images/senegal_elections_analysis.jpg
-  overlay_image: /assets/images/senegal_elections_analysis.jpg
+  teaser: /assets/images/senegal_elections_analysis.png
+  overlay_image: /assets/images/senegal_elections_analysis.png
   overlay_filter: 0.5
 tags:
   - Power BI

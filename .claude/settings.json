@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add assets/images/copilot.png assets/images/copy_job.png assets/images/data_factory.png assets/images/data_warehouse.png assets/images/databases.png assets/images/dataflow_gen2.png assets/images/event_house.png assets/images/eventstream.png assets/images/fabric.png assets/images/folder.png assets/images/function.png assets/images/function_set.png assets/images/kql_database.png assets/images/kql_queryset.png assets/images/lakehouse.png assets/images/links.png assets/images/mirrored_generic_database.png assets/images/model.png assets/images/notebook.png assets/images/one_lake.png assets/images/pipeline.png assets/images/power_bi.png assets/images/real_time_dashboard.png assets/images/report.png assets/images/schema_model.png assets/images/semantic_model.png assets/images/sql_database.png assets/images/streaming_dataflow.png assets/images/variables.png \"assets/images/environment \\(1\\).png\" assets/images/environment.png)",
+      "Bash(git commit:*)",
+      "Bash(git push origin dev)",
+      "Bash(git checkout main)",
+      "Bash(git merge dev --no-ff -m \"Redesign: clean typography, nav, and icon filter buttons on Projects\")",
+      "Bash(git push origin main)",
+      "Bash(git checkout dev)",
+      "Bash(git add assets/css/main.scss index.md _pages/portfolio.md _pages/musings.md _pages/resume.md)",
+      "Bash(git merge dev --no-ff -m \"Merge dev: design refresh \\(orange primary, light hero, card improvements\\)\")"
+    ]
+  }
+}

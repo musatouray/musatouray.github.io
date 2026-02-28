@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s \"https://voytekmichalek.studio/\")",
+      "Bash(curl -s \"https://voytekmichalek.studio/assets/index-ChJPoG7-.css\")",
+      "Bash(curl -s \"https://voytekmichalek.studio/assets/index-B3F2_1oa.js\")"
+    ]
+  }
+}
