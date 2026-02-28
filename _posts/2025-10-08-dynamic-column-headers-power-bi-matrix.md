@@ -5,8 +5,8 @@ excerpt: "A walkthrough of how I solved a non-native Power BI challenge: making 
 date: 2025-10-08
 permalink: /musings/dynamic-column-headers-power-bi-matrix/
 header:
-  teaser: /assets/images/matrix-dynamic-headers-final.png
-  overlay_image: /assets/images/matrix-dynamic-headers-final.png
+  teaser: /assets/images/matrix_table_with_dynamic_column_headers.png
+  overlay_image: /assets/images/matrix_table_with_dynamic_column_headers.png
   overlay_filter: 0.65
 categories:
   - Musings
@@ -24,10 +24,6 @@ related: true
 ---
 
 I recently had an interesting request: build a matrix visual where the column headers update automatically every week — no manual editing, no republishing. Just open the report on Monday and the headers have already moved on.
-
-Here is what the final output looks like:
-
-![Matrix visual with dynamic weekly column headers](/assets/images/matrix_table_with_dynamic_column_headers.png)
 
 ---
 
