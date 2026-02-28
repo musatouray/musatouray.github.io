@@ -2,15 +2,14 @@
 layout: single
 title: Projects
 permalink: /projects/
-author_profile: false
+author_profile: true
+breadcrumbs: false
 header:
   overlay_color: "#f0f4f8"
   overlay_filter: "1"
-excerpt: "Data engineering and analytics projects."
+excerpt: "Explore my data engineering and analytics projects. Each project demonstrates my own practical learnings and reflections."
 classes: wide light-hero
 ---
-
-<p class="projects-intro">Explore my data engineering and analytics projects. Each project demonstrates my own practical learnings and reflections.</p>
 
 <!-- Filter bar -->
 <div class="projects-filter" id="projects-filter">
@@ -55,13 +54,6 @@ classes: wide light-hero
       {% endif %}
     </a>
     <div class="project-card__body">
-      {% if project.tags.size > 0 %}
-      <div class="project-card__tags">
-        {% for tag in project.tags limit:2 %}
-        <span class="project-tag">{{ tag }}</span>
-        {% endfor %}
-      </div>
-      {% endif %}
       <h3 class="project-card__title">
         <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
       </h3>
