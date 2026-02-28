@@ -11,12 +11,7 @@ author_profile: false
   <div class="home-hero__inner">
     <h1 class="home-hero__name">Hi, I'm <span>Musa</span></h1>
     <img src="/assets/images/profile-image.jpg" alt="Musa Touray" class="home-hero__avatar">
-    <div class="home-hero__roles">
-      <span>Data Engineer</span>
-      <span>Power BI Developer</span>
-      <span>Microsoft Fabric</span>
-    </div>
-    <p class="home-hero__bio">Data Engineer &amp; Analytics Engineer. Microsoft Certified Fabric and Power BI specialist building enterprise data solutions across the Azure ecosystem.</p>
+    <p class="home-hero__bio">Data Engineer &amp; Analytics Engineer. Microsoft Certified Fabric and Power BI specialist building enterprise data solutions.</p>
     <p class="home-hero__tagline">Learn, Apply, Repeat.</p>
     <div class="home-hero__divider"></div>
     <div class="home-hero__location">
