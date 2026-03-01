@@ -60,13 +60,6 @@ author_profile: false
       {% endif %}
     </a>
     <div class="project-card__body">
-      {% if project.tags.size > 0 %}
-      <div class="project-card__tags">
-        {% for tag in project.tags limit:2 %}
-        <span class="project-tag">{{ tag }}</span>
-        {% endfor %}
-      </div>
-      {% endif %}
       <h3 class="project-card__title">
         <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
       </h3>
