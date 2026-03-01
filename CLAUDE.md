@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is a professional portfolio website for Musa Touray, a Microsoft Certified Power BI and PowerApps developer. The site showcases data analytics projects, technical skills, and professional certifications.
+This is a professional portfolio website for Musa Touray, a Data Engineer, Analytics Engineer, and Microsoft Certified Fabric and Power BI specialist. The site showcases data analytics projects, technical skills, and professional certifications.
 
 **Live URL:** https://musatouray.github.io
 **Repository:** https://github.com/musatouray/musatouray.github.io
@@ -14,17 +14,16 @@ This is a professional portfolio website for Musa Touray, a Microsoft Certified 
 - **Framework:** Jekyll static site generator
 - **Theme:** Minimal Mistakes v4.24.0 (remote_theme)
 - **Skin:** Default (professional white/gray)
-- **Deployment:** GitHub Pages
+- **Deployment:** GitHub Pages — Deploy from branch (`main`)
 
 ### Key Features
+- Custom full-bleed hero on home page (replaces MM sidebar author profile)
 - Power BI embedded dashboards in blog posts
-- Microsoft certification badges showcase
-- Disqus comments integration
-- Google Analytics tracking
-- Formspree contact form
+- Microsoft certification badges in post/page sidebar
+- Featured Projects + Latest Musings grids on home page
 - Portfolio collection for projects
-- Responsive design
-- SEO optimized
+- Musings (blog posts) with filter buttons and load-more
+- Responsive design, SEO optimised
 
 ## Directory Structure
 
@@ -34,58 +33,166 @@ This is a professional portfolio website for Musa Touray, a Microsoft Certified 
 ├── _data/
 │   └── navigation.yml       # Site navigation menu
 ├── _pages/                  # Static pages
-│   ├── about.md
 │   ├── contact.md
 │   ├── privacy-policy.md
 │   ├── categories.md
 │   ├── tags.md
-│   ├── portfolio.md
-│   ├── skills.md
+│   ├── portfolio.md         # Projects listing page
+│   ├── musings.md           # Musings/blog listing page
 │   └── resume.md
 ├── _posts/                  # Blog posts (YYYY-MM-DD-title.md)
 │   ├── 2021-12-04-real-time-live-tv-presidential-elections-report.md
 │   ├── 2022-04-10-the-gambia-national-assembly-parliamentary-elections-live-dashbard.md
-│   └── 2024-03-24-senegal-presidential-elections-analysis.md
-├── _portfolio/              # Portfolio collection items (empty, ready for use)
+│   ├── 2024-03-24-senegal-presidential-elections-analysis.md
+│   └── 2025-10-08-dynamic-column-headers-power-bi-matrix.md
+├── _portfolio/              # Portfolio collection items
+├── .github/
+│   └── workflows/
+│       └── jekyll.yml       # GitHub Actions workflow (user-managed)
 ├── assets/
 │   ├── css/
-│   │   └── main.scss        # Custom styling
+│   │   └── main.scss        # All custom styling (do not split)
 │   └── images/              # All images, badges, logos
-├── index.md                 # Home page with featured projects
+├── index.md                 # Home page (custom hero + project/musings grids)
 ├── Gemfile                  # Ruby dependencies
 └── README.md                # Documentation
 ```
 
-## Content Management
+## Home Page Architecture
+
+The home page (`index.md`) uses a fully custom layout — **not** the standard MM overlay hero or sidebar.
+
+**Front matter:**
+```yaml
+---
+layout: single
+title: "Musa Touray"
+classes: wide home-page
+author_profile: false
+---
+```
+
+**Page structure:**
+1. `<section class="home-hero">` — full-bleed profile card
+   - `.home-hero__inner` — centred column (name, avatar, bio, tagline, divider, location, social links)
+   - `.home-hero__nav` — pill-style nav bar at the bottom border of the hero
+2. `## Featured Projects` — `.projects-grid home-projects-grid` (3-col, portfolio items)
+3. `## Latest Musings` — `.projects-grid home-musings-grid` (3-col, 3 most recent posts)
+
+**Key CSS behaviour (`.home-page` body class):**
+- Masthead hidden entirely: `.home-page .masthead { display: none !important }`
+- All MM layout wrappers reset to `width: 100%; float: none; margin: 0; padding: 0`
+- `overflow-x: clip` (NOT `hidden`) to prevent horizontal scroll without creating scroll container
+- Content below hero re-padded: `.page__content > *:not(.home-hero) { padding-left: 2rem; padding-right: 2rem }`
+- Both home grids share the 3-column rule: `.home-projects-grid, .home-musings-grid { grid-template-columns: repeat(3, 1fr) }`
+
+## Design System (`assets/css/main.scss`)
+
+### Brand Tokens
+```scss
+$primary-color:  #FF6634;   // set before @import "minimal-mistakes"
+$link-color:     #FF6634;
+
+:root {
+  --color-primary:    #FF6634;
+  --color-nav-bg:     #f0f4f8;
+  --color-text:       #0F1729;
+  --color-muted:      #6B7280;
+  --color-border:     #e2e8f0;
+  --font-sans:        'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+```
+
+### Typography
+- All `h1–h6` locked to **18px** via `!important` to prevent MM's responsive root scaling
+- Body font: Inter via `--font-sans`
+
+### Key MM Overrides
+- Masthead nav underline bar: `.visible-links a::before { display: none !important }`
+- Masthead nav hover: pill style (faint orange bg, orange text) — matches hero nav
+- Site title text hidden (`font-size: 0`) but logo image still shows
+- Subtitle hidden globally: `.site-subtitle { display: none !important }`
+- RSS Feed removed from footer: `atom_feed: hide: true` in `_config.yml`
+- Twitter removed from `author.links` and `footer.links` in `_config.yml`
+
+### Card Components
+- `.project-card` — used for portfolio page AND home page Featured Projects and Latest Musings
+- `.musing-card` — used on the Musings listing page only
+- `.load-more-btn` requires `color: #fff !important` (MM cascade overrides btn--primary color)
+
+## Critical Configuration Files
+
+### _config.yml
+
+**DO NOT MODIFY these without testing:**
+- `remote_theme`: Must stay `mmistakes/minimal-mistakes@4.24.0`
+- `permalink`: Must stay `/:title/` (SEO — existing URLs depend on this)
+- `url`: Must be `https://musatouray.github.io`
+
+**Current important settings:**
+```yaml
+atom_feed:
+  hide: true          # removes FEED link from footer
+
+# Google Analytics
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "UA-113961478-1"
+```
+
+**Social links:** Only LinkedIn and GitHub are active. Twitter has been removed from `author.links` and `footer.links`.
+
+### Gemfile
+
+```ruby
+gem "github-pages", group: :jekyll_plugins
+# Do NOT add jekyll-include-cache separately — it's bundled inside github-pages
+```
+
+### Navigation (_data/navigation.yml)
+
+Current nav items: Home (`/`), Musings (`/musings/`), Projects (`/projects/`), Resume (`/resume/`)
+
+## Posts
+
+| File | Teaser Image |
+|------|-------------|
+| `2021-12-04-real-time-live-tv-presidential-elections-report.md` | `gambia-presidential-elections.png` |
+| `2022-04-10-...-parliamentary-elections-live-dashbard.md` | `gambia-parliamentary-elections.jpg` |
+| `2024-03-24-senegal-presidential-elections-analysis.md` | `senegal_elections_analysis.png` |
+| `2025-10-08-dynamic-column-headers-power-bi-matrix.md` | `matrix_table_with_dynamic_column_headers.png` |
+
+**Note:** Election post images are intentionally `.png` (except parliamentary which is `.jpg`). Do not change extensions without checking.
 
 ### Adding a Blog Post
 
-1. **Create file** in `_posts/` with format: `YYYY-MM-DD-title.md`
-2. **Use this front matter template:**
+1. Create file in `_posts/` with format: `YYYY-MM-DD-title.md`
+2. Use this front matter template:
 
 ```yaml
 ---
 layout: single
 title: "Your Post Title"
 excerpt: "Brief 1-2 sentence description for previews"
+date: YYYY-MM-DD
+permalink: /musings/your-post-slug/
 header:
-  teaser: /assets/images/your-image.jpg
-  overlay_image: /assets/images/your-image.jpg
-  overlay_filter: 0.5
+  teaser: /assets/images/your-image.png
+  overlay_image: /assets/images/your-image.png
+  overlay_filter: 0.65
 categories:
+  - Musings
   - Power BI
-  - Data Visualization
 tags:
   - Power BI
-  - PowerApps
-  - Azure SQL
+  - DAX
 author_profile: true
-comments: true
 share: true
 related: true
 ---
 
-Your content here...
+Post content here...
 ```
 
 3. **For Power BI embeds**, use standard HTML:
@@ -101,8 +208,7 @@ Your content here...
 
 ### Adding a Portfolio Item
 
-1. **Create file** in `_portfolio/` directory
-2. **Use this template:**
+Create file in `_portfolio/` directory:
 
 ```yaml
 ---
@@ -110,315 +216,136 @@ layout: single
 title: "Project Name"
 excerpt: "Project description"
 header:
-  teaser: /assets/images/project-image.jpg
-  overlay_image: /assets/images/project-image.jpg
+  teaser: /assets/images/project-image.png
+  overlay_image: /assets/images/project-image.png
   overlay_filter: 0.5
-sidebar:
-  - title: "Technologies"
-    text: "Power BI, PowerApps, Azure SQL"
-  - title: "Year"
-    text: "2024"
+tags:
+  - Power BI
+  - Azure
 ---
 
 Full project description and details...
 ```
 
-### Updating Pages
+## Certification Badges
 
-Pages are in `_pages/` directory. All use `layout: single`. Common front matter options:
-
-```yaml
----
-layout: single
-title: "Page Title"
-permalink: /page-url/
-author_profile: true  # Show author bio sidebar
-toc: true            # Table of contents
-toc_label: "Contents"
-header:
-  overlay_image: /assets/images/header.jpg
-  overlay_filter: 0.3
----
-```
-
-## Critical Configuration Files
-
-### _config.yml
-
-**DO NOT MODIFY these without testing:**
-- `remote_theme`: Must stay `mmistakes/minimal-mistakes@4.24.0`
-- `permalink`: Must stay `/:title/` (SEO - existing URLs depend on this)
-- `url`: Must be `https://musatouray.github.io`
-
-**Safe to modify:**
-- `minimal_mistakes_skin`: Can change to "air", "contrast", "dark", "mint", etc.
-- Navigation, author info, social links
-- Analytics and comment settings
-- Sidebar defaults
-
-**Important settings:**
-```yaml
-# Disqus comments
-comments:
-  provider: "disqus"
-  disqus:
-    shortname: "portfoliowebsite"
-
-# Google Analytics
-analytics:
-  provider: "google-gtag"
-  google:
-    tracking_id: "UA-113961478-1"
-```
-
-### Navigation (_data/navigation.yml)
-
-Main menu items. Format:
-```yaml
-main:
-  - title: "Display Name"
-    url: /url-path/
-```
+Configured in `_config.yml` under `defaults` → `posts` → `sidebar`. Current badges (all `.png`):
+- **DP-700**: Fabric Analytics Engineer Associate
+- **DP-600**: Fabric Analytics Engineer
+- **PL-300**: Power BI Data Analyst Associate
+- **PL-100**: Power Platform App Maker Associate
+- **DP-900**: Azure Data Fundamentals
+- **PL-900**: Power Platform Fundamentals
 
 ## Development Workflow
 
 ### Local Development
 
-1. **Install dependencies:**
-   ```bash
-   bundle install
-   ```
-
-2. **Run local server:**
-   ```bash
-   bundle exec jekyll serve --watch
-   ```
-
-3. **Preview:** http://localhost:4000
-
-4. **Live reload:** Server auto-reloads on file changes
-
-### Testing Checklist
-
-Before deploying changes:
-- [ ] All pages load without errors
-- [ ] Power BI iframes display correctly
-- [ ] Images load (use absolute paths: `/assets/images/...`)
-- [ ] Navigation menu works
-- [ ] Responsive design (test 375px, 768px, 1024px widths)
-- [ ] No broken links
-- [ ] Comments appear on posts
-- [ ] Contact form submits successfully
+```bash
+bundle install
+bundle exec jekyll serve --watch
+# Preview at http://localhost:4000
+```
 
 ### Git Workflow
 
-**Branch Strategy:**
-- `main`: Production (live site)
-- `dev`: Development/testing
-- Feature branches: For major changes
+**Branch strategy:**
+- `main` — Production (live site, GitHub Pages serves from here)
+- `dev` — Development/staging
 
 **Standard workflow:**
 ```bash
-# Create feature branch from dev
+# Work on dev
 git checkout dev
-git pull origin dev
-git checkout -b feature/your-feature
-
-# Make changes, test locally
-# Commit and push
-git add .
-git commit -m "Description of changes"
-git push -u origin feature/your-feature
-
-# Merge to dev for testing
-git checkout dev
-git merge feature/your-feature
+# ... make changes ...
+git add <files>
+git commit -m "Description"
 git push origin dev
 
-# After testing on dev, merge to main
+# Merge to main (always use --no-ff)
 git checkout main
-git merge dev
+git merge --no-ff dev -m "Merge dev: description of changes"
+git push origin main
+
+# Sync dev back to avoid "X commits behind" warning
+git checkout dev
+git merge --no-ff main -m "Sync dev with main merge commits"
+git push origin dev
+git checkout main
+```
+
+**Force a rebuild without content changes:**
+```bash
+git commit --allow-empty -m "Trigger GitHub Pages rebuild"
 git push origin main
 ```
+
+**Important:** Always use `git merge --no-ff` (not fast-forward) when merging dev → main.
 
 ## Deployment
 
 ### GitHub Pages Setup
 
 **Settings → Pages:**
-- Source: Deploy from branch
-- Branch: `main` (or `dev` for testing)
-- Folder: `/ (root)`
-- Custom domain: (if applicable)
+- Source: **Deploy from a branch**
+- Branch: `main` / `/ (root)`
 - Enforce HTTPS: ✓
 
-**Build Status:** Check Actions tab for deployment status
+**Do NOT use GitHub Actions deployment** — the branch-based builder is simpler and works correctly with the `github-pages` gem. A `jekyll.yml` Actions workflow exists in `.github/workflows/` but deployment is handled by the branch-based builder, not Actions.
 
 ### Build Time
+- Typical build: 1–2 minutes after push
+- CDN propagation: up to 5–10 minutes
+- Always test in **incognito mode** to bypass browser cache
+- Hard refresh: `Ctrl+Shift+R`
 
-- Typical build: 1-2 minutes
-- After push, wait ~2-5 minutes for live site update
-- Check: https://github.com/musatouray/musatouray.github.io/actions
+## Important Notes
 
-## Customization
-
-### Changing Color Scheme
-
-**Option 1: Use different skin** (easiest)
-
-In `_config.yml`:
+### Image Paths
+**Always use absolute paths** in front matter and content:
 ```yaml
-minimal_mistakes_skin: "mint"  # or "air", "contrast", "dark", etc.
+# Correct:
+teaser: /assets/images/photo.png
+
+# Wrong:
+teaser: assets/images/photo.png
 ```
 
-**Option 2: Custom colors** (more control)
+**Never reference GitHub user-attachments URLs** (e.g. `https://github.com/user-attachments/assets/...`) — these are private/temporary and return 404 when embedded. Always save images to `assets/images/` and commit them.
 
-Edit `assets/css/main.scss`:
-```scss
-$primary-color: #0066cc;  # Your brand color
-$link-color: #0066cc;
-```
+### URL Structure
+**Never change** `permalink: /:title/` in `_config.yml` — search engines have indexed existing URLs.
 
-### Adding Custom CSS
+### Author Configuration
+Site uses a single author defined in `_config.yml` under `author:`. Do not add `author:` to individual post front matter — it causes issues. All posts automatically use the site-wide author.
 
-Add to `assets/css/main.scss` after the imports:
-```scss
-/* Your custom styles */
-.your-custom-class {
-  /* styles */
-}
-```
-
-### Certification Badges
-
-Configured in `_config.yml` under `defaults` → `posts` → `sidebar`.
-
-**To update badge links:**
-1. Get Credly badge URL
-2. Update in `_config.yml`
-3. Ensure badge image exists in `/assets/images/`
-
-Current badges:
-- PL-300: Power BI Data Analyst
-- PL-100: Power Platform App Maker
-- AZ-900: Azure Fundamentals
-- PL-900: Power Platform Fundamentals
-
-## Common Tasks
-
-### Update Author Bio
-
-Edit `_config.yml` under `author:` section
-
-### Change Site Title
-
-Edit `_config.yml`:
-```yaml
-title: "Your New Title"
-subtitle: "Your Subtitle"
-```
-
-### Add Social Links
-
-Edit `_config.yml` under `author: links:` and `footer: links:`
-
-### Update Contact Form Email
-
-The Formspree form uses `{{site.email}}` which is set in `_config.yml`:
-```yaml
-email: amigomusa@amigomusa.com
-```
-
-### Enable Search (Optional)
-
-In `_config.yml`:
-```yaml
-search: true
-search_full_content: true
-```
+### Bootstrap
+This site does **not** use Bootstrap. Minimal Mistakes has its own CSS framework. Do not add Bootstrap classes.
 
 ## Troubleshooting
 
 ### Build Fails
-
-**Check GitHub Actions:**
-1. Go to repository → Actions tab
-2. Click failed build
-3. Read error logs
-
-**Common issues:**
-- YAML syntax error in front matter
-- Missing closing quotes in config
-- Invalid liquid template syntax
+1. Go to repo → **Actions** tab → click failed build → read error logs
+2. Common causes: YAML syntax error, missing quotes, invalid Liquid syntax
 
 ### Images Not Displaying
+- Use absolute paths: `/assets/images/file.png`
+- Check filename and extension match exactly (case-sensitive on GitHub Pages)
+- Ensure image is committed to git (`git status` to check for untracked files)
 
-**Checklist:**
-- Use absolute paths: `/assets/images/file.jpg` (NOT `assets/images/file.jpg`)
-- Check file extension matches (case-sensitive)
-- Ensure image exists in `assets/images/`
-- Check for typos in filename
+### Changes Not Showing on Live Site
+1. Check the Pages build completed (green checkmark in Actions tab)
+2. Open site in **incognito** mode to bypass browser cache
+3. Wait up to 10 minutes for CDN propagation after branch switch
+4. If still stale, push an empty commit to force rebuild
+
+### Gemfile Dependency Warning
+If you see "The github-pages gem can't satisfy your Gemfile's dependencies" — ensure `jekyll-include-cache` is **not** listed separately in the Gemfile; it's bundled inside `github-pages`.
 
 ### Power BI iframes Not Loading
-
-**Embed URL format:**
-```html
-<iframe style="width:100%;" height="383"
-    src="https://app.powerbi.com/view?r=YOUR_EMBED_CODE"
-    frameborder="0" allowFullScreen="true">
-</iframe>
-```
-
-**Common issues:**
-- Missing `https://`
-- Incorrect embed permissions in Power BI
-- Ad blockers may block iframes (user-side issue)
-
-### Disqus Comments Not Showing
-
-**Verify:**
-1. `comments: true` in post front matter
-2. Correct shortname in `_config.yml`
-3. Post is published (not in future date)
-4. Site URL matches Disqus settings
-
-### Local Build Works but GitHub Pages Fails
-
-**Likely causes:**
-- Using plugins not supported by GitHub Pages
-- Gemfile includes gems GitHub Pages doesn't allow
-- Check `_config.yml` plugins list matches GitHub Pages whitelist
-
-## Important Notes
-
-### URL Structure
-
-**Never change** `permalink: /:title/` in `_config.yml`:
-- Existing URLs depend on this format
-- Search engines have indexed current URLs
-- External links point to current structure
-- Breaking URLs hurts SEO
-
-### Image Paths
-
-**Always use absolute paths** in front matter:
-```yaml
-# Correct:
-image: /assets/images/photo.jpg
-
-# Wrong:
-image: assets/images/photo.jpg
-```
-
-### Author Configuration
-
-**Site uses single author** defined in `_config.yml` under `author:`.
-
-**Do not add** `author: john` or any other author reference in post front matter - it will cause issues. All posts automatically use the site-wide author.
-
-### Bootstrap Removed
-
-This site **no longer uses Bootstrap**. Minimal Mistakes has its own CSS framework. Don't add Bootstrap classes to new content.
+- Verify embed URL starts with `https://`
+- Check embed permissions in Power BI service
+- Ad blockers may block iframes on visitor's side
 
 ## Resources
 
@@ -427,20 +354,8 @@ This site **no longer uses Bootstrap**. Minimal Mistakes has its own CSS framewo
 - [GitHub Pages Documentation](https://docs.github.com/en/pages)
 - [Credly Badge Management](https://www.credly.com/)
 
-## Support
-
-For theme issues:
-- [Minimal Mistakes GitHub Issues](https://github.com/mmistakes/minimal-mistakes/issues)
-
-For Jekyll issues:
-- [Jekyll Talk Forum](https://talk.jekyllrb.com/)
-
-For deployment issues:
-- Check GitHub Actions logs
-- [GitHub Pages Troubleshooting](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/troubleshooting-jekyll-build-errors-for-github-pages-sites)
-
 ---
 
-**Last Updated:** 2026-02-16
+**Last Updated:** 2026-03-01
 **Theme Version:** Minimal Mistakes 4.24.0
 **Jekyll Version:** Via GitHub Pages gem
