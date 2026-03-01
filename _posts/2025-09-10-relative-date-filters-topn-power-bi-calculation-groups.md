@@ -2,7 +2,7 @@
 layout: single
 title: "How to Implement Relative Date Filters with TopN Selection in Power BI Using Calculation Groups — A Walkthrough"
 excerpt: "A walkthrough of how to build dynamic relative date filters combined with a TopN selector in Power BI using Calculation Groups, disconnected tables, and DAX — all natively in Power BI Desktop."
-date: 2026-03-01
+date: 2025-09-10
 permalink: /musings/relative-date-filters-topn-power-bi-calculation-groups/
 header:
   teaser: /assets/images/relative_date_filters_with_topn_selection.png
