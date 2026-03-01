@@ -2,7 +2,7 @@
 layout: single
 title: "Introducing UDF — User Defined Functions in Power BI"
 excerpt: "UDF is Power BI's newest feature that lets you define reusable functions just like in traditional programming languages, eliminating repetitive DAX code across your semantic model."
-date: 2026-03-01
+date: 2025-09-30
 permalink: /musings/introducing-udf-user-defined-functions-power-bi/
 header:
   teaser: /assets/images/matrix_table_with_udf_svg_icons.png
