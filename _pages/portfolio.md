@@ -35,6 +35,12 @@ classes: wide light-hero
   <button class="filter-btn" data-filter="report">
     <img src="/assets/images/report.png" alt="">Report
   </button>
+  <button class="filter-btn" data-filter="dbt">
+    <img src="/assets/images/dbt.png" alt="">dbt
+  </button>
+  <button class="filter-btn" data-filter="snowflake">
+    <img src="/assets/images/snowflake.png" alt="">Snowflake
+  </button>
 </div>
 
 <div class="projects-grid" id="projects-grid">
