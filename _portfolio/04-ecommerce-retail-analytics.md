@@ -1,6 +1,6 @@
 ---
 title: "E-Commerce Retail Analytics"
-excerpt: "Production-grade analytics pipeline featuring advanced SQL patterns including RFM segmentation, cohort analysis, and customer lifetime value."
+excerpt: "Production-grade analytics platform with automated pipelines (Airflow), Snowflake warehouse, dbt transformations, CI/CD, and Power BI dashboards."
 header:
   teaser: /assets/images/ecommerce_analytics.png
   overlay_image: /assets/images/ecommerce_analytics_dbt_snowflake.png
@@ -9,107 +9,82 @@ tags:
   - dbt
   - Snowflake
   - Power BI
-  - SQL
+  - Airflow
+  - AWS S3
   - Data Engineering
 ---
 
-This project demonstrates a complete analytics pipeline built with **dbt**, **Snowflake**, and **Power BI**, showcasing production-grade data modeling patterns used by data teams at top companies to drive real business decisions.
+## Project Overview
 
-## Key Analytics Questions Answered
+This project transforms raw e-commerce transaction data into actionable customer insights that drive revenue growth, reduce churn, and optimize marketing spend. It's a complete data platform built with the same tools and practices used by data teams at top tech companies—from automated data pipelines to interactive dashboards that answer the questions executives actually ask.
 
-### Customer Segmentation & Lifetime Value
-- **RFM Analysis**: Segment customers into actionable groups (Champions, At-Risk, Lost) based on Recency, Frequency, and Monetary value
-- **Customer Lifetime Value (CLV)**: Predict lifetime value of customers and identify high-ROI cohorts
-- **Churn Prediction**: Identify customers at risk of churning based on behavioral signals and dormancy periods
+**[View Full Project on GitHub →](https://github.com/musatouray/portfolio-projects.git)**
 
-### Revenue & Performance Analysis
-- **Pareto Analysis (80/20 Rule)**: Identify which 20% of products and customers generate 80% of revenue
-- **Funnel & Conversion Analysis**: Track conversion rates from order placement to delivery confirmation
-- **Seller Performance Scoring**: Rank sellers using composite scores based on delivery time, reviews, and volume
+## Key Questions Answered
 
-### Cohort & Trend Analysis
-- **Cohort Analysis**: Compare purchasing behavior across monthly acquisition cohorts and track retention curves
-- **Time Intelligence**: Analyze MoM/YoY growth with 7-day and 30-day moving averages
-- **Geographic Performance**: Identify regional opportunities based on average order value and delivery performance
+| Business Question | Analytics Solution | Impact |
+|-------------------|-------------------|--------|
+| *Which customers should we prioritize?* | **RFM Segmentation** classifies customers into Champions, Loyal, At-Risk, and Lost segments | Focus retention efforts on high-value customers before they churn |
+| *What's a customer worth over time?* | **Customer Lifetime Value** predicts 12-month revenue per customer | Optimize acquisition spend based on projected ROI |
+| *Are we retaining customers?* | **Cohort Retention Analysis** tracks monthly cohorts with GRR/NRR metrics | Identify which acquisition channels produce sticky customers |
+| *Who's about to leave?* | **Churn Risk Scoring** flags at-risk customers based on behavioral signals | Trigger proactive outreach before customers disappear |
+| *What products sell together?* | **Market Basket Analysis** identifies co-purchase patterns | Power cross-sell recommendations and bundle offers |
+| *How is the business trending?* | **Time Series Analytics** with dynamic moving averages, MoM and YoY growth | Spot trends early and compare performance across periods |
 
-### Market Basket Analysis
-- **Co-purchase Patterns**: Discover products frequently purchased together for cross-sell optimization
-- **Product Bundling**: Identify bundling opportunities based on co-occurrence matrices
+## Data Layers (Medallion Architecture)
 
-## Advanced SQL Patterns
-
-| Pattern | Business Value | Key SQL Features |
-|---------|----------------|------------------|
-| **RFM Analysis** | Customer segmentation | `NTILE()`, `CASE WHEN` scoring |
-| **Pareto Analysis** | Focus on high-impact items | `SUM() OVER`, cumulative percentages |
-| **Customer Lifetime Value** | Revenue forecasting | Cohort averages, predictive aggregations |
-| **Funnel Analysis** | Conversion optimization | `COUNT(CASE WHEN...)`, stage ratios |
-| **Cohort Analysis** | Retention tracking | `DATE_TRUNC`, cohort pivots |
-| **Market Basket** | Cross-sell opportunities | Self-joins, co-occurrence matrices |
-| **Churn Indicators** | Proactive retention | `DATEDIFF`, `LAG()`, behavioral flags |
-| **Time Intelligence** | Trend analysis | `LAG()`, moving averages, YoY/MoM |
-| **Seller Scoring** | Vendor management | `PERCENT_RANK()`, weighted composites |
-| **Geo Performance** | Regional strategy | Location-based aggregations |
-
-## Architecture
-
-The project implements a **Medallion Architecture** with a 2-database pattern for environment isolation:
-
-```
-┌──────────────┐      ┌──────────────┐      ┌──────────────┐      ┌──────────────┐
-│    Kaggle    │      │  Snowflake   │      │     dbt      │      │   Power BI   │
-│   (Source)   │─────▶│  (Warehouse) │─────▶│ (Transform)  │─────▶│  (Visualize) │
-└──────────────┘      └──────────────┘      └──────────────┘      └──────────────┘
-```
+| Layer | Location | Purpose |
+|-------|----------|---------|
+| **Bronze (RAW)** | DEV | Source data loaded via Airflow from S3 |
+| **Silver (STAGING)** | DEV | Cleaned views with type casting and validation |
+| **Gold (INTERMEDIATE)** | DEV + PROD | Enriched models with business logic |
+| **Gold (MARTS)** | DEV + PROD | Fact and dimension tables for BI |
 
 **Key Design Decisions:**
-- **Bronze + Silver in DEV only** — No data duplication, cost efficient
-- **Gold layer separated** — Dev and Prod environments fully isolated
-- **Cross-database reference** — PROD reads from DEV.STAGING (single source of truth)
-- **CI/CD with GitHub Actions** — Automated testing and deployment
-
-### Data Layers
-
-| Layer | Purpose |
-|-------|---------|
-| **Bronze (RAW)** | Raw source data, immutable |
-| **Silver (STAGING)** | Cleaned, typed, validated views |
-| **Gold (INTERMEDIATE)** | Joined and enriched models |
-| **Gold (MARTS)** | Fact and dimension tables for BI |
+- Bronze + Silver in DEV only — No data duplication, cost efficient
+- Gold layer separated — Dev and Prod environments fully isolated
+- Cross-database reference — PROD reads from DEV.STAGING (single source of truth)
 
 ## Tech Stack
 
-| Component | Tool |
-|-----------|------|
-| **Warehouse** | Snowflake |
-| **Transform** | dbt |
-| **Orchestration** | GitHub Actions CI/CD |
-| **Visualization** | Power BI |
-| **Package Manager** | uv (Python) |
+| Layer | Technology | Purpose |
+|-------|------------|---------|
+| **Orchestration** | Airflow (Docker) | Schedule pipelines, manage dependencies |
+| **Storage** | AWS S3 | Stage raw files for loading |
+| **Warehouse** | Snowflake | Scalable cloud analytics database |
+| **Transformation** | dbt | Version-controlled SQL models with testing |
+| **CI/CD** | GitHub Actions | Automated testing and deployment |
+| **Visualization** | Power BI + Microsoft Fabric | Interactive dashboards with Git-based deployment |
+| **Alerting** | Slack | Pipeline monitoring and notifications |
 
-## Data Model
+## Analytics Models
 
-**Core Fact Tables:**
-- `fct_orders` — One row per order with metrics
-- `fct_order_items` — One row per order item
+**Customer Intelligence:**
+- `fct_rfm_segments` — Monthly customer segmentation snapshots
+- `fct_clv_customer` — Lifetime value prediction with behavioral inputs
+- `fct_cohort_retention` — Cohort-based retention tracking with GRR/NRR
 
-**Customer Analytics:**
-- `fct_rfm_segments` — RFM scores and customer segments
-- `fct_cohort_retention` — Cohort retention metrics
-- `fct_clv_customer` — Customer lifetime value calculations
-- `fct_churn_risk` — Churn risk scores
-
-**Finance & Marketing:**
-- `fct_daily_revenue` — Daily revenue aggregates
-- `fct_category_performance` — Category metrics by month
-- `fct_geo_performance` — Geographic performance by state
+**Core Analytics:**
+- `fct_orders` — Order-level fact table with revenue and delivery metrics
+- `fct_order_items` — Line-item detail with product, seller, and margins
+- `fct_market_basket` — Product co-occurrence for cross-sell recommendations
 
 **Dimensions:**
-- `dim_customers`, `dim_cohorts`, `dim_dates`, `dim_products`, `dim_sellers`
+- `dim_customers`, `dim_products`, `dim_sellers`, `dim_dates`
+
+## What Makes This Production-Grade
+
+| Capability | Implementation |
+|------------|----------------|
+| **Automated Pipeline** | Airflow orchestrates daily data generation, loading, and transformation |
+| **CI/CD** | GitHub Actions runs tests on every PR, deploys to production on merge |
+| **Environment Isolation** | Separate DEV and PROD databases—changes validated before reaching dashboards |
+| **Observability** | Slack alerts on pipeline failures, success summaries with row counts |
+| **Interactive Dashboards** | Power BI reports deployed via Fabric Git integration |
 
 <p>
     <iframe style="width:100%;" height="383"
-        src="https://app.powerbi.com/view?r=eyJrIjoiYTg5ZDFjNDctMDhlYi00MTNmLTkyMWEtYmY5ODZkNjQzNjA0IiwidCI6ImU3ZmRiMmEyLTUzODAtNDBmMC04MmQ4LWEzYjU0YzFmODE3ZiJ9"
+        src="https://app.powerbi.com/view?r=eyJrIjoiMWYwMTA1NjMtMmZiYy00YmYzLTgxN2UtMjI3MjFhMzY0MGQ4IiwidCI6ImU3ZmRiMmEyLTUzODAtNDBmMC04MmQ4LWEzYjU0YzFmODE3ZiJ9"
         frameborder="0" allowFullScreen="true">
     </iframe>
 </p>
