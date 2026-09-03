@@ -282,12 +282,15 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   pre {
-    background: #f1f5f9;
-    border: 1px solid var(--color-border);
+    background: #1e293b;
+    border: 1px solid #334155;
     border-radius: var(--radius);
     font-family: 'JetBrains Mono', 'Fira Code', monospace;
     font-size: 13px;
     line-height: 1.6;
+    color: #e2e8f0;
+    padding: 1em;
+    overflow-x: auto;
   }
 
   code {
@@ -302,10 +305,11 @@ h1, h2, h3, h4, h5, h6 {
   pre code {
     background: transparent;
     padding: 0;
-    color: inherit;
+    color: #e2e8f0;
     border-radius: 0;
+    font-size: inherit;
 
-    /* Ensure all syntax highlighting tokens inherit the pre background */
+    /* Ensure all syntax highlighting tokens have transparent bg and readable text */
     *,
     span {
       background: transparent !important;
@@ -314,8 +318,8 @@ h1, h2, h3, h4, h5, h6 {
 
   /* Rouge syntax highlighter wrapper */
   .highlight {
-    background: #f1f5f9;
-    border: 1px solid var(--color-border);
+    background: #1e293b;
+    border: 1px solid #334155;
     border-radius: var(--radius);
     margin: 1.5em 0;
 
@@ -325,6 +329,18 @@ h1, h2, h3, h4, h5, h6 {
       border: none;
       background: transparent;
     }
+
+    /* Rouge syntax token colors for dark background */
+    .c, .c1, .cm { color: #64748b; }          /* comments */
+    .k, .kd, .kn, .kp, .kr { color: #c084fc; } /* keywords */
+    .s, .s1, .s2, .sb, .sc, .sr { color: #86efac; } /* strings */
+    .n, .na, .nb, .nc, .no, .nd { color: #e2e8f0; } /* names */
+    .nf, .ni, .nl, .nn, .nt { color: #7dd3fc; } /* function names, tags */
+    .nv, .vc, .vg, .vi { color: #fca5a5; }     /* variables */
+    .m, .mf, .mh, .mi, .mo { color: #fdba74; } /* numbers */
+    .o, .ow { color: #e2e8f0; }                /* operators */
+    .p { color: #e2e8f0; }                     /* punctuation */
+    .err { color: #fca5a5; }                   /* errors */
   }
 
   blockquote {
