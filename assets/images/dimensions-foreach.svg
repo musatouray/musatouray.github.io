@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 560" font-family="'Segoe Print','Comic Sans MS','Bradley Hand',cursive">
+  <rect x="0" y="0" width="1120" height="560" fill="#ffffff"/>
+  <defs>
+    <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <marker id="ah" markerWidth="14" markerHeight="14" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8" fill="none" stroke="#1e1e1e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <g filter="url(#rough)" stroke="#1e1e1e" stroke-width="2.2" stroke-linejoin="round">
+    <!-- param -->
+    <rect x="40" y="235" width="200" height="120" rx="8" fill="#a5d8ff"/>
+    <!-- ForEach container -->
+    <rect x="300" y="130" width="470" height="330" rx="10" fill="#fff9db"/>
+    <!-- inner Copy -->
+    <rect x="335" y="250" width="400" height="175" rx="8" fill="#b2f2bb"/>
+    <!-- Bronze -->
+    <rect x="850" y="245" width="230" height="150" rx="8" fill="#d0bfff"/>
+    <!-- arrows -->
+    <path d="M240,295 Q270,291 298,295" fill="none" marker-end="url(#ah)"/>
+    <path d="M735,330 Q795,326 848,330" fill="none" marker-end="url(#ah)"/>
+  </g>
+
+  <g fill="#1e1e1e">
+    <text x="300" y="52" font-size="30" font-weight="bold">Dimensions — full reload (ForEach)</text>
+
+    <!-- param -->
+    <text x="140" y="285" font-size="17" text-anchor="middle" font-weight="bold">DimensionTables[]</text>
+    <text x="140" y="310" font-size="14" text-anchor="middle">9 dim tables</text>
+    <text x="140" y="332" font-size="13" text-anchor="middle" fill="#495057">(array parameter)</text>
+
+    <!-- ForEach title -->
+    <text x="535" y="170" font-size="19" text-anchor="middle" font-weight="bold">ForEach_Dimension_FullLoad</text>
+    <text x="535" y="194" font-size="14" text-anchor="middle" fill="#495057">&#8635; loops once per @item()</text>
+
+    <!-- Copy inner -->
+    <text x="535" y="285" font-size="18" text-anchor="middle" font-weight="bold">Copy_Dimension</text>
+    <text x="360" y="318" font-size="14">source:  SELECT * FROM dw.@{item()}</text>
+    <text x="360" y="344" font-size="14" fill="#495057">(on-prem SQL via gateway)</text>
+    <text x="360" y="374" font-size="14">sink:  bronze.@{item()}  —  Overwrite</text>
+    <text x="360" y="402" font-size="13" fill="#495057">+ _ingested_at_utc, _source_system, _source_table, _run_id</text>
+
+    <!-- Bronze -->
+    <text x="965" y="300" font-size="19" text-anchor="middle" font-weight="bold">Bronze</text>
+    <text x="965" y="326" font-size="14" text-anchor="middle">lh_metals</text>
+    <text x="965" y="350" font-size="14" text-anchor="middle" fill="#495057">dim_* (Delta)</text>
+  </g>
+</svg>
